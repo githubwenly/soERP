@@ -1,0 +1,96 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+}
+#size {
+    overflow: hidden;
+    /*width:1279px;*/
+    width: 80%;
+    height:1076.4px;
+    float: right;
+    margin-top: 80px;
+}
+.card-header-detail{
+	padding-left:23px;
+}
+.card-header-detail span
+{
+	position: relative;
+	top: -5px;
+	font-size: 13px;
+	color:#868E96;
+}
+.card-header-right{
+	float: right;
+	margin-top: -27px;
+}
+.card-header-right p{
+	font-size: 12px;
+}
+.card-header-right .month{
+	font-weight: bold;
+}
+.card-header-right .shang{
+	margin-top:-11px;
+	font-size: 13px;
+	text-align: right;
+}
+.card .time ul{
+   padding-left: 30px;
+	overflow: hidden;
+}
+.card .time li{
+	border: 1px solid #EBEBEB;
+	width:40px;
+	height: 30px;
+line-height:30px;
+text-align: center;
+float: left;
+}
+.card .time li a{
+	color: #5A5A5A;
+}
+#cks tr td:first-child{
+	width: 50px;
+}
+.export{
+	margin-top: -20px;
+	overflow: hidden;
+}
+.export ul{
+   padding-left: 30px;
+	float:right;
+}
+.export li{
+	border: 1px solid #EBEBEB;
+	width:80px;
+	height: 30px;
+line-height:30px;
+text-align: center;
+float: left;
+}
+.export li a{
+	color: #5A5A5A;
+}
+.tabs{
+	margin-top: -40px;
+	background-color:#eeeeee30;
+}
+.froms{
+	width:400px;
+	margin-top:15px;
+}
+.froms .btn-search{
+	float:left;
+	width: 70px;
+	height: 38px;
+	position: absolute;
+	top:145px;
+	left:359px;
+}
+nav .nav-page{
+	position: relative;
+	top:-25px;
+}

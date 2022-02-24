@@ -1,0 +1,574 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				text-decoration: none;
+			}
+			
+			.customer {
+				margin-bottom: 20px;
+				padding-top: 10px;
+				background-color: #FFF;
+				height: 100px;
+			}
+			
+			.customer-manager h3 {
+				width:150px;
+				margin-left: 33px;
+			}
+			
+			.customer ul {
+				margin-left: 20px;
+			}
+			.infoDetail{
+				height:380px;
+			}
+			.form {			
+			overflow: hidden;
+			}
+			.form div{
+					margin-bottom:25px;
+			}
+			.form div>input{
+			position:absolute;
+			left:100px;
+			} 
+			.form div>select{
+			position:absolute;
+			left:100px;
+			}
+			.form div>label{
+				position: relative;
+				left: 110px;
+			}
+			.form .detail-left{
+			margin-top:30px;
+			width:610px;
+		}
+		.form .detail-right{
+			margin-top:75px;
+		}
+		.detail-right .form-group{
+			margin-left: -165px !important;
+		}
+		.btnTwo {
+				position: absolute;
+				top: -60px;
+				right: 0px;
+				margin-right: 30px;
+			}
+			.export {
+				position: absolute;
+				top: 100px;
+				right: 0px;
+				overflow: hidden;
+			}
+			
+			.export ul {
+				float: right;
+				margin-right: 40px;
+			}
+			
+			.export li {
+				border: 1px solid #EBEBEB;
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				float: left;
+			}
+			
+			.export li a {
+					color: #5A5A5A;
+			}
+			.tables{
+				margin: 0px auto;
+				background-color:#F5F5F5;	
+				width: 1180.2px !important;		
+				margin-top: -100px;
+			}
+			.datelength{
+				width: 320px;
+			}
+			.cancel{
+				color: #F0AD4E !important;
+				position: relative;
+				top:20px
+			}
+			.set{
+			position: relative;
+				top:20px
+			}
+			/*模态框*/
+			.consize{	
+				height:480px !important;	
+				margin: auto;
+			}
+			.modal-body{
+				background-color: #eeeeee30 !important;
+				
+			}
+			.drops{
+				position: absolute;
+				top:47px;
+				left:330px;
+			}
+			.modal-ctainer .Desc{
+					position: relative;
+					top: -5px;
+			}
+			.modal-ctainer .btn-drop{
+				height:18px;
+				background-color: #FFFFFF;
+				border: 1px solid #E7EAEC;
+			}
+			.btnfoot{
+				position: relative;
+				left: -10px;
+			}
+		</style>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+			<!--时间选择插件-->
+<link rel="stylesheet" href="/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+		<!--日期选择插件-->
+<link rel="stylesheet" href="/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+		<link href="/css/style.min.css" rel="stylesheet">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" /src="/js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>		
+<script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+<!--时间选择插件-->
+<script src="/js/bootstrap-datetimepicker/moment.min.js"></script>
+<script src="/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="/js/bootstrap-datetimepicker/locale/zh-cn.js"></script>
+<!--日期选择插件-->
+<script src="/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script type="text/javascript" src="/js/main.min.js"></script>
+		<script>
+		    $(function () {
+		        $("#delete").click(function () {
+		            swal("您确定要删除吗！", "该客户数据已删除！", "success");
+		        });
+		        var pageSize = 5;//每页显示的记录条数
+		        var curPage = 0;  //当前页
+		        var lastPage; //最后页
+		        var direct = 0; //方向
+		        var len; //总行数
+		        var page;//总页数
+		        var begin;
+		        var end;
+
+		        $(document).ready(function display() {
+		            len = $("#cks tr").length - 1;//求这个表的总行数（ListData是table的id）
+		            if (len < 0) len = 0
+		            page = len % pageSize == 0 ? len / pageSize : Math.floor(len / pageSize) + 1;//根据记录条数，计算页数
+		            curPage = 1; // 设置当前为第一页
+		            displayPage(1);//显示第一页
+
+		            document.getElementById("rowspage").innerHTML = pageSize; // 显示的记录条数
+		            document.getElementById("total").innerHTML = len; // 显示数据量
+		            document.getElementById("btn0").innerHTML = curPage + "/" + page;// 显示当前多少页
+
+		            $("#FirstPage").click(function firstPage() {
+		                curPage = 1;
+		                direct = 0;
+		                displayPage();
+		            });
+		            $("#PreviousPage").click(function frontPage() {
+		                direct = -1;
+		                displayPage();
+		            });
+		            $("#NextPage").click(function nextPage() {
+		                direct = 1;
+		                displayPage();
+		            });
+		            $("#LastPage").click(function lastPage() {
+		                curPage = page;
+		                direct = 0;
+		                displayPage();
+		            });
+		            $("#btn5").click(function changePage() {
+		                curPage = document.getElementById("changePage").value * 1;
+		                if (!/^[1-9]\d*$/.test(curPage)) {
+		                    alert("请输入正整数！");
+		                    return;
+		                }
+		                if (curPage > page) {
+		                    alert("超出数据页面！");
+		                    return;
+		                }
+		                direct = 0;
+		                displayPage();
+		            });
+		        });
+
+		        function displayPage() {
+		            if (curPage <= 1 && direct == -1) {
+		                direct = 0;
+		                alert("已经是第一页了！");
+		                return;
+		            } else if (curPage >= page && direct == 1) {
+		                direct = 0;
+		                alert("已经是最后一页了！");
+		                return;
+		            }
+		            lastPage = curPage;
+
+		            // 修复当len=1时，curPage计算得0的bug
+		            if (len > pageSize) {
+		                curPage = ((curPage + direct + len) % len);
+		            } else {
+		                curPage = 1;
+		            }
+		            document.getElementById("btn0").innerHTML = curPage + "/" + page; // 显示当前多少页
+		            begin = (curPage - 1) * pageSize + 1;// 起始记录号
+		            end = begin + 1 * pageSize - 1;    // 末尾记录号
+		            if (end > len) end = len;
+		            $("#cks tr").hide();// 首先,设置这行为隐藏
+		            $("#cks tr").each(function (i) {// 然后，通过条件判断决定本行是否恢复显示
+		                if ((i >= begin && i <= end) || i == 0)//显示begin<=x<=end的记录
+		                    $(this).show();
+		            });
+		        }
+		        //根据商品信息查询商品信息
+		        $("#Goods").change(function () {
+		            //获取id值
+		            var goodsid = $(this).val();
+		            //判断是否为默认
+		            if (goodsid != 0) {
+		                $.ajax({
+		                    url: "/Management/SelectGoodsinfo",
+		                    data: { "goods": goodsid },
+		                    dataType: "json",
+		                    success: function (data) {
+		                        //赋值
+		                        $("#Goodsid").val(data.goodsid)
+		                        $("#Origin").val(data.address)
+		                        $("#Unit").val(data.unit)
+		                        $("#Specifications").val(data.speacis)
+		                        $("#Titanic").val(data.tianct)
+		                        $("#Price").val(data.price)
+		                        $("#Categoryid").val(data.lvenname)
+		                        $("#SupplierId").val(data.suppliername)
+		                    }
+		                })
+		            } else {
+		                alert("请选择商品");
+		            }
+		        })
+		        //点击新增赋值商品id
+		        $(".add").click(function () {
+		            //获取id
+		            var goodsid = $("#Goods").val();
+		            if (goodsid == 0) {
+		                alert("请选择要添加的商品");
+		            } else {
+		                //赋值
+		                $("#Goodsid2").val(goodsid);
+		            }
+		            
+		        })
+		        //根据采购数量计算金额
+		        $("#Purchasid").blur(function () {
+		            var number = $(this).val();
+		            //获取单价
+		            var price = $("#Price").val();
+		            //总价
+		            var sum = price * number;
+		            $("#Amount_payable").val(sum);
+		           
+		        })
+		        //计算未付金额
+		        $("#Real_pay").blur(function () {
+		            var number = $(this).val();
+		            //获取总价
+		            var price = $("#Amount_payable").val();
+		            //未付金额
+		            var sum = price - number;
+		            $("#Unpaid_amount").val(sum);
+		        })
+                //日期控件
+		        $("#date input").datepicker({
+		            language: "zh-CN",
+                    
+		        })
+		    })
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="customer">
+				<div class="customer-manager">
+					<h3>添加采购单</h3>
+				</div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="javascript:;">首页</a>
+					</li>
+					<li>
+						<a href="javascript:;">采购管理</a>
+					</li>
+					<li class="active">添加采购单</li>
+				</ul>
+			</div>
+<!--商品信息详情-->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card  infoDetail">
+						<div class="card-header ">
+							<h4>商品信息详情</h4>
+						</div>
+						<div class="form">
+							<form class="form-horizontal" role="form">
+								<div class="col-lg-6 detail-left">
+									<div class="form-group">
+										<label class="col-lg-2 control-label">商品名称：</label>
+										<div class="col-sm-10">
+											<select class="form-control" id="Goods">
+												<option value="0">请选择商品名称</option>
+                                                @foreach (var item in ViewBag.Goods)
+                                                {
+                                                    <option value="@item.Goodsid">@item.Goodsname</option>
+                                                }
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">商品编号：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Goodsid" name="Goodsid" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">商品单位：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Unit"  name="Unit" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">批准文号：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Titanic"  name="Titanic" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">商品类别：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Categoryid"  name="Categoryid" type="text" readonly="readonly">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 detail-right">
+<div class="form-group">
+										<label class="col-lg-2 control-label">商品产地：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Origin"  name="Origin" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">商品规格：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Specifications"  name="Specifications" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">商品单价：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="Price"  name="Price" type="text" readonly="readonly">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">供应商名：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="SupplierId"  name="SupplierId" type="text" readonly="readonly">
+										</div>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--采购单详情-->
+			<div class="row">
+							<div class="col-lg-12">
+								<div class="card heads ibox-content">
+									<div class="card-header">
+										<h4>采购单详情</h4>	
+										<div class="card-toolbar clearfix ">
+								<div class="toolbar-btn-action btnTwo">
+									<a class="btn btn-primary m-r-5 add" href="#!"  data-toggle="modal" data-target="#myModal"><i class="mdi mdi-plus"></i> 新增</a>
+								</div>
+							</div>
+									</div>
+									<div class="card-body">
+							<div class="froms">
+								<form role="form">
+							<div class="table-responsive">
+								<table id="cks" class="table table-bordered tables">
+									<thead>
+										<tr>
+											<th><input type="checkbox" name="ck"></th>
+											<th>产品编号</th>
+											<th>产品名称</th>
+											<th>产品单价</th>
+											<th>数量</th>
+											<th>状态</th>
+										</tr>
+									</thead>
+									<tbody>
+                                        @foreach (var item in ViewBag.purchas)
+                                        {
+                                            <tr>	
+											@*<td style="text-align: center;" colspan="6">没有您要搜索的内容</td>*@	                                           
+											<td><input type="checkbox" name="ck"></td>
+											<td>@item.purchasid</td>
+											<td>@item.goodsname</td>
+											<td>@item.purchasnumber</td>
+											<td>@item.purchasnumber</td>
+											<td>@item.purcharstae</td>											
+										</tr>
+                                        }
+										
+									</tbody>
+								</table>
+								<div style="display:block;font-size:17px;">
+                <div style="margin-left:10px;margin-top: 3px; float: left; ">
+                    共 &nbsp;<a id="total" style="color:#337ab7;"></a> &nbsp;条数据,&nbsp;
+                    每页显示 &nbsp;<a id="rowspage" style="color:#337ab7 ;"></a> &nbsp;条数据, &nbsp;
+                    共 &nbsp;<a id="btn0" style="color:#337ab7;"></a>&nbsp;&nbsp;页 &nbsp;
+                </div>
+                    <a href="#" id="FirstPage">&nbsp;<img src="/images/上一页.png" /></a>
+                    <a href="#" id="PreviousPage"> &nbsp;<img src="/images/上一页.png" /></a>
+                    <a href="#" id="NextPage"> &nbsp;<img src="/images/下一页.png" /></a>
+                    <a href="#" id="LastPage"> &nbsp;<img src="/images/尾页.png" /></a>
+                    <a> &nbsp;第 </a>
+                    <input id="changePage" type="text" size="1" style="text-align: center;" autocomplete="off"/>
+                    <a>页 </a>
+                    <a href="#" id="btn5"> &nbsp;GO</a>
+               </div>
+							</div>
+
+									</form>
+								</div>
+							</div>
+								</div>
+							</div>
+						</div>
+		
+			<!--模态框添加商品数量-->
+			<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content consize">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center;">添加采购单</h4>
+            </div>
+            <div class="modal-body contents">
+            	<!--添加采购单-->
+			<div class="row">
+							<div class="col-lg-12">
+								<div class="">
+									<div class="card-body">
+							<div class="froms">
+
+								<form class="form-horizontal" action="~/Management/PurchasingManagerAddPurchaseOrderAdd" method="post" role="form">
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">采购日期：</label>
+    <div class="col-sm-3">
+    	<div class="input-group lyear-layout-sidebar-scroll  datelength" id="date">
+ @*<input class="form-control js-datepicker m-b-10" type="text" id="example-datepicker" name="example-datepicker Purchase_date" placeholder="请输入日期"  data-date-format="yyyy-mm-dd" />*@
+            <input type="text" id="Purchase_date" class="form-control" name="Purchase_date" data-date-format="yyyy-mm-dd" />
+</div>
+    </div>
+    
+    <label for="firstname" class="col-sm-2 control-label">结算方式：</label>
+    <div class="col-sm-3">
+      <select class="form-control" id="Settlement_method" name="Settlement_method">
+          <option value="0">汇款</option>
+          <option value="1">现金</option>
+    </select>
+        @*//商品信息id*@
+        <input type="hidden" id="Goodsid2" name="Goodsid" />
+    </div>
+    
+  </div>
+
+    <div class="form-group ">
+  	<label for="firstname" class="col-sm-2 control-label">采购数量：</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="Purchasid" name="Procurement_number"  placeholder="99">
+    </div>
+     <label for="firstname" class="col-sm-2 control-label">经手人：</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="firstname" name="Handlers" placeholder="经手人">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastname" class="col-sm-2 control-label">应付金额：</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="Amount_payable" name="Amount_payable" placeholder="应付金额">
+    </div>
+    <label for="lastname" class="col-sm-2 control-label">实付金额：</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="Real_pay" name="Real_pay" placeholder="实付金额">
+        @*//未付金额*@
+        <input type="hidden" id="Unpaid_amount" name="Unpaid_amount" />
+    </div>
+  </div>
+  <div class="form-group">
+    
+    <label for="firstname" class="col-sm-2 control-label">操作人：</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="" value="@Session["usrName"]" readonly="readonly">
+        <input type="hidden" name="Usersid" value="@int.Parse(Session["uid"].ToString())" />
+    </div>
+      @*//状态默认为待质检*@
+   <input type="hidden" name="State" value="待质检" />
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <button type="submit" class="btn btn-default cancel">取消</button>
+    </div>
+    <div class="col-sm-offset-2 col-sm-2">
+      <button type="submit" class="btn btn-primary set">提交</button>
+    </div>
+  </div>
+</form>	
+								</div>
+							</div>
+								</div>
+						</div>	
+						</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default closed" data-dismiss="modal">关闭
+				</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+		</div>
+
+	</body>
+
+</html>

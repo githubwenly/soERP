@@ -1,0 +1,1331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ErpDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ErpDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Announcements" EntityType="ErpDBModel.Announcements" />
+    <EntitySet Name="Customer" EntityType="ErpDBModel.Customer" />
+    <EntitySet Name="Department" EntityType="ErpDBModel.Department" />
+    <EntitySet Name="Dermal" EntityType="ErpDBModel.Dermal" />
+    <EntitySet Name="Employees" EntityType="ErpDBModel.Employees" />
+    <EntitySet Name="Good_Quality" EntityType="ErpDBModel.Good_Quality" />
+    <EntitySet Name="Goods" EntityType="ErpDBModel.Goods" />
+    <EntitySet Name="Goods_Delivery" EntityType="ErpDBModel.Goods_Delivery" />
+    <EntitySet Name="Goods_inventory" EntityType="ErpDBModel.Goods_inventory" />
+    <EntitySet Name="Lnven" EntityType="ErpDBModel.Lnven" />
+    <EntitySet Name="Material" EntityType="ErpDBModel.Material" />
+    <EntitySet Name="OrderManager" EntityType="ErpDBModel.OrderManager" />
+    <EntitySet Name="PlanOrder" EntityType="ErpDBModel.PlanOrder" />
+    <EntitySet Name="Product" EntityType="ErpDBModel.Product" />
+    <EntitySet Name="Product_Put" EntityType="ErpDBModel.Product_Put" />
+    <EntitySet Name="Product_Quality" EntityType="ErpDBModel.Product_Quality" />
+    <EntitySet Name="Products" EntityType="ErpDBModel.Products" />
+    <EntitySet Name="Purchase__Brrowing" EntityType="ErpDBModel.Purchase__Brrowing" />
+    <EntitySet Name="Purchase_brrowing" EntityType="ErpDBModel.Purchase_brrowing" />
+    <EntitySet Name="Purchase_order" EntityType="ErpDBModel.Purchase_order" />
+    <EntitySet Name="Purchase_Put" EntityType="ErpDBModel.Purchase_Put" />
+    <EntitySet Name="Purchase_Return" EntityType="ErpDBModel.Purchase_Return" />
+    <EntitySet Name="Purchase_returns" EntityType="ErpDBModel.Purchase_returns" />
+    <EntitySet Name="Salary" EntityType="ErpDBModel.Salary" />
+    <EntitySet Name="Sales" EntityType="ErpDBModel.Sales" />
+    <EntitySet Name="Sales_Brrowing" EntityType="ErpDBModel.Sales_Brrowing" />
+    <EntitySet Name="Sales_delivery" EntityType="ErpDBModel.Sales_delivery" />
+    <EntitySet Name="Supplier" EntityType="ErpDBModel.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="ErpDBModel.sysdiagrams" />
+    <EntitySet Name="Transport" EntityType="ErpDBModel.Transport" />
+    <EntitySet Name="Users" EntityType="ErpDBModel.Users" />
+    <AssociationSet Name="FK_OrderManager_Customer" Association="ErpDBModel.FK_OrderManager_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customer" Association="ErpDBModel.FK_Sales_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Department" Association="ErpDBModel.FK_Employees_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Department" Association="ErpDBModel.FK_Material_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Department" Association="ErpDBModel.FK_Product_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Users" Association="ErpDBModel.FK_Users_Users">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salary_Employees" Association="ErpDBModel.FK_Salary_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Salary" EntitySet="Salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Good_Quality_Purchase_order" Association="ErpDBModel.FK_Good_Quality_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Good_Quality" EntitySet="Good_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Good_Quality_Users" Association="ErpDBModel.FK_Good_Quality_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Good_Quality" EntitySet="Good_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Lnven" Association="ErpDBModel.FK_Goods_Lnven">
+      <End Role="Lnven" EntitySet="Lnven" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Supplier" Association="ErpDBModel.FK_Goods_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Goods" Association="ErpDBModel.FK_Material_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_order_Goods" Association="ErpDBModel.FK_Purchase_order_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Goods_inventory" Association="ErpDBModel.FK_Goods_Delivery_Goods_inventory">
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Sales" Association="ErpDBModel.FK_Goods_Delivery_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Users" Association="ErpDBModel.FK_Goods_Delivery_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_inventory_Goods_inventory" Association="ErpDBModel.FK_Goods_inventory_Goods_inventory">
+      <End Role="Product_Put" EntitySet="Product_Put" />
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_inventory_Purchase_Put" Association="ErpDBModel.FK_Goods_inventory_Purchase_Put">
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Lnven" Association="ErpDBModel.FK_Products_Lnven">
+      <End Role="Lnven" EntitySet="Lnven" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Users" Association="ErpDBModel.FK_Material_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Products" Association="ErpDBModel.FK_OrderManager_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Transport" Association="ErpDBModel.FK_OrderManager_Transport">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Users" Association="ErpDBModel.FK_OrderManager_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanOrder_OrderManager" Association="ErpDBModel.FK_PlanOrder_OrderManager">
+      <End Role="OrderManager" EntitySet="OrderManager" />
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderManager" Association="ErpDBModel.FK_Sales_OrderManager">
+      <End Role="OrderManager" EntitySet="OrderManager" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanOrder_Users" Association="ErpDBModel.FK_PlanOrder_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_PlanOrder" Association="ErpDBModel.FK_Product_PlanOrder">
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Put_Product" Association="ErpDBModel.FK_Product_Put_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Put" EntitySet="Product_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Quality_Purchase_order" Association="ErpDBModel.FK_Product_Quality_Purchase_order">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Quality" EntitySet="Product_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Users" Association="ErpDBModel.FK_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Quality_Users" Association="ErpDBModel.FK_Product_Quality_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product_Quality" EntitySet="Product_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Products" Association="ErpDBModel.FK_Sales_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase__Brrowing_Purchase_order" Association="ErpDBModel.FK_Purchase__Brrowing_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase__Brrowing" EntitySet="Purchase__Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase__Brrowing_Users" Association="ErpDBModel.FK_Purchase__Brrowing_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase__Brrowing" EntitySet="Purchase__Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_brrowing_Purchase_order" Association="ErpDBModel.FK_Purchase_brrowing_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_brrowing_Users" Association="ErpDBModel.FK_Purchase_brrowing_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_order_Users" Association="ErpDBModel.FK_Purchase_order_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Put_Purchase_order" Association="ErpDBModel.FK_Purchase_Put_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_returns_Purchase_order" Association="ErpDBModel.FK_Purchase_returns_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Put_Users" Association="ErpDBModel.FK_Purchase_Put_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Return_Purchase_order" Association="ErpDBModel.FK_Purchase_Return_Purchase_order">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Return_Users" Association="ErpDBModel.FK_Purchase_Return_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_returns_Users" Association="ErpDBModel.FK_Purchase_returns_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Brrowing_Sales" Association="ErpDBModel.FK_Sales_Brrowing_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_delivery_Sales" Association="ErpDBModel.FK_Sales_delivery_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Users" Association="ErpDBModel.FK_Sales_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Brrowing_Users" Association="ErpDBModel.FK_Sales_Brrowing_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_delivery_Users" Association="ErpDBModel.FK_Sales_delivery_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Announcements">
+    <Key>
+      <PropertyRef Name="Annountid" />
+    </Key>
+    <Property Name="Annountid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Annountime" Type="DateTime" Precision="3" />
+    <Property Name="Announttitle" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Annountpeople" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Annountext" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Customername" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Referred" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Zip_code" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="13" Unicode="false" FixedLength="false" />
+    <Property Name="Contact" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Concat_phone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Bank" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="BankId" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_OrderManager_Customer" FromRole="Customer" ToRole="OrderManager" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Customer" FromRole="Customer" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Departmentname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="DepartmentReadname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Employees" Relationship="ErpDBModel.FK_Employees_Department" FromRole="Department" ToRole="Employees" />
+    <NavigationProperty Name="Material" Relationship="ErpDBModel.FK_Material_Department" FromRole="Department" ToRole="Material" />
+    <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Department" FromRole="Department" ToRole="Product" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Users_Users" FromRole="Department" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Dermal">
+    <Key>
+      <PropertyRef Name="Dermalid" />
+    </Key>
+    <Property Name="Dermalid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Dermal_tname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Dermal_lname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Dermal_gname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeesId" />
+    </Key>
+    <Property Name="EmployeesId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Position" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Nationals" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Domicile" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="IdNumber" Type="String" MaxLength="18" Unicode="false" FixedLength="false" />
+    <Property Name="Workingtime" Type="DateTime" Precision="3" />
+    <Property Name="Photo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Department1" Relationship="ErpDBModel.FK_Employees_Department" FromRole="Employees" ToRole="Department" />
+    <NavigationProperty Name="Salary" Relationship="ErpDBModel.FK_Salary_Employees" FromRole="Employees" ToRole="Salary" />
+  </EntityType>
+  <EntityType Name="Good_Quality">
+    <Key>
+      <PropertyRef Name="QualityId" />
+    </Key>
+    <Property Name="QualityId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Quality_date" Type="DateTime" Precision="3" />
+    <Property Name="Purchase_orderid" Type="Int32" />
+    <Property Name="Goodsname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Quality_state" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Quality_end" Type="Int32" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Good_Quality_Purchase_order" FromRole="Good_Quality" ToRole="Purchase_order" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Good_Quality_Users" FromRole="Good_Quality" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Goods">
+    <Key>
+      <PropertyRef Name="Goodsid" />
+    </Key>
+    <Property Name="Goodsid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Goodsname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Goodsjieche" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Unit" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Origin" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Specifications" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Packaging" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Batch_number" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Titanic" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="SupplierId" Type="Int32" />
+    <Property Name="Categoryid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Lnven" Relationship="ErpDBModel.FK_Goods_Lnven" FromRole="Goods" ToRole="Lnven" />
+    <NavigationProperty Name="Supplier" Relationship="ErpDBModel.FK_Goods_Supplier" FromRole="Goods" ToRole="Supplier" />
+    <NavigationProperty Name="Material" Relationship="ErpDBModel.FK_Material_Goods" FromRole="Goods" ToRole="Material" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_order_Goods" FromRole="Goods" ToRole="Purchase_order" />
+  </EntityType>
+  <EntityType Name="Goods_Delivery">
+    <Key>
+      <PropertyRef Name="DeliveryId" />
+    </Key>
+    <Property Name="DeliveryId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="GoodsInvenid" Type="Int32" />
+    <Property Name="Saleid" Type="Int32" />
+    <Property Name="productname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Delivery_date" Type="Int32" />
+    <Property Name="Outbound_number" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Purposes" Type="String" MaxLength="120" Unicode="false" FixedLength="false" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Goods_inventory" Relationship="ErpDBModel.FK_Goods_Delivery_Goods_inventory" FromRole="Goods_Delivery" ToRole="Goods_inventory" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Goods_Delivery_Sales" FromRole="Goods_Delivery" ToRole="Sales" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Goods_Delivery_Users" FromRole="Goods_Delivery" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Goods_inventory">
+    <Key>
+      <PropertyRef Name="InventoryId" />
+    </Key>
+    <Property Name="InventoryId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Unit" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Suppliername" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Inventory_type" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Invenid" Type="Int32" />
+    <Property Name="ProduPutid" Type="Int32" />
+    <Property Name="Inventory" Type="Int32" />
+    <NavigationProperty Name="Goods_Delivery" Relationship="ErpDBModel.FK_Goods_Delivery_Goods_inventory" FromRole="Goods_inventory" ToRole="Goods_Delivery" />
+    <NavigationProperty Name="Product_Put" Relationship="ErpDBModel.FK_Goods_inventory_Goods_inventory" FromRole="Goods_inventory" ToRole="Product_Put" />
+    <NavigationProperty Name="Purchase_Put" Relationship="ErpDBModel.FK_Goods_inventory_Purchase_Put" FromRole="Goods_inventory" ToRole="Purchase_Put" />
+  </EntityType>
+  <EntityType Name="Lnven">
+    <Key>
+      <PropertyRef Name="Invenid" />
+    </Key>
+    <Property Name="Invenid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Invenname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Goods" Relationship="ErpDBModel.FK_Goods_Lnven" FromRole="Lnven" ToRole="Goods" />
+    <NavigationProperty Name="Products" Relationship="ErpDBModel.FK_Products_Lnven" FromRole="Lnven" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Materialid" />
+    </Key>
+    <Property Name="Materialid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Goodsid" Type="Int32" />
+    <Property Name="Departmentid" Type="Int32" />
+    <Property Name="Materialcount" Type="Int32" />
+    <Property Name="Material_time" Type="DateTime" Precision="3" />
+    <Property Name="Material_use" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Material_member" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Department" Relationship="ErpDBModel.FK_Material_Department" FromRole="Material" ToRole="Department" />
+    <NavigationProperty Name="Goods" Relationship="ErpDBModel.FK_Material_Goods" FromRole="Material" ToRole="Goods" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Material_Users" FromRole="Material" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="OrderManager">
+    <Key>
+      <PropertyRef Name="Orderid" />
+    </Key>
+    <Property Name="Orderid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="Ordercount" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Ordertime" Type="DateTime" Precision="3" />
+    <Property Name="Delivery_date" Type="DateTime" Precision="3" />
+    <Property Name="Transport" Type="Int32" />
+    <Property Name="Order_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Customer" Relationship="ErpDBModel.FK_OrderManager_Customer" FromRole="OrderManager" ToRole="Customer" />
+    <NavigationProperty Name="Products" Relationship="ErpDBModel.FK_OrderManager_Products" FromRole="OrderManager" ToRole="Products" />
+    <NavigationProperty Name="Transport1" Relationship="ErpDBModel.FK_OrderManager_Transport" FromRole="OrderManager" ToRole="Transport" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_OrderManager_Users" FromRole="OrderManager" ToRole="Users" />
+    <NavigationProperty Name="PlanOrder" Relationship="ErpDBModel.FK_PlanOrder_OrderManager" FromRole="OrderManager" ToRole="PlanOrder" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_OrderManager" FromRole="OrderManager" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="PlanOrder">
+    <Key>
+      <PropertyRef Name="PlanOrderid" />
+    </Key>
+    <Property Name="PlanOrderid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Production" Type="Int32" />
+    <Property Name="Product_time" Type="DateTime" Precision="3" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Orderid" Type="Int32" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_PlanOrder_OrderManager" FromRole="PlanOrder" ToRole="OrderManager" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_PlanOrder_Users" FromRole="PlanOrder" ToRole="Users" />
+    <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_PlanOrder" FromRole="PlanOrder" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Productid" />
+    </Key>
+    <Property Name="Productid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_name" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Productcount" Type="Int32" />
+    <Property Name="Product_time" Type="DateTime" Precision="3" />
+    <Property Name="Product_pihao" Type="Int32" />
+    <Property Name="Departmentid" Type="Int32" />
+    <Property Name="PlanOrderid" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Department" Relationship="ErpDBModel.FK_Product_Department" FromRole="Product" ToRole="Department" />
+    <NavigationProperty Name="PlanOrder" Relationship="ErpDBModel.FK_Product_PlanOrder" FromRole="Product" ToRole="PlanOrder" />
+    <NavigationProperty Name="Product_Put" Relationship="ErpDBModel.FK_Product_Put_Product" FromRole="Product" ToRole="Product_Put" />
+    <NavigationProperty Name="Product_Quality" Relationship="ErpDBModel.FK_Product_Quality_Purchase_order" FromRole="Product" ToRole="Product_Quality" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Product_Users" FromRole="Product" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Product_Put">
+    <Key>
+      <PropertyRef Name="Putid" />
+    </Key>
+    <Property Name="Putid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Productid" Type="Int32" />
+    <Property Name="Put_date" Type="DateTime" Precision="3" />
+    <Property Name="Putnumber" Type="Int32" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Goods_inventory" Relationship="ErpDBModel.FK_Goods_inventory_Goods_inventory" FromRole="Product_Put" ToRole="Goods_inventory" />
+    <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Put_Product" FromRole="Product_Put" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product_Quality">
+    <Key>
+      <PropertyRef Name="QualityId" />
+    </Key>
+    <Property Name="QualityId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Quality_date" Type="DateTime" Precision="3" />
+    <Property Name="Product_orderid" Type="Int32" />
+    <Property Name="Product_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Batch_number" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Quality_number" Type="Int32" />
+    <Property Name="Quality_end" Type="Int32" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Quality_Purchase_order" FromRole="Product_Quality" ToRole="Product" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Product_Quality_Users" FromRole="Product_Quality" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Productsid" />
+    </Key>
+    <Property Name="Productsid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Productsname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Productsjieche" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Unit" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Specifications" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Packaging" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Batch_number" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Titanic" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SupplierId" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Lnven" Relationship="ErpDBModel.FK_Products_Lnven" FromRole="Products" ToRole="Lnven" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_OrderManager_Products" FromRole="Products" ToRole="OrderManager" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Products" FromRole="Products" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Purchase__Brrowing">
+    <Key>
+      <PropertyRef Name="Purchase_brriwid" />
+    </Key>
+    <Property Name="Purchase_brriwid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_brriwdate" Type="DateTime" Precision="3" />
+    <Property Name="Purchaseid" Type="Int32" />
+    <Property Name="Usersid" Type="Int32" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase__Brrowing_Purchase_order" FromRole="Purchase__Brrowing" ToRole="Purchase_order" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase__Brrowing_Users" FromRole="Purchase__Brrowing" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Purchase_brrowing">
+    <Key>
+      <PropertyRef Name="Brrowingid" />
+    </Key>
+    <Property Name="Brrowingid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Brrowingdate" Type="DateTime" Precision="3" />
+    <Property Name="Purchaseid" Type="Int32" />
+    <Property Name="Product_name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Purchase_returnsnumber" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Purchase_returnsprice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Amount_payable" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Real_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Unpaid_amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_brrowing_Purchase_order" FromRole="Purchase_brrowing" ToRole="Purchase_order" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_brrowing_Users" FromRole="Purchase_brrowing" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Purchase_order">
+    <Key>
+      <PropertyRef Name="Purchase_orderid" />
+    </Key>
+    <Property Name="Purchase_orderid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Goodsid" Type="Int32" />
+    <Property Name="Procurement_number" Type="Int32" />
+    <Property Name="Settlement_method" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Amount_payable" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Real_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Unpaid_amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Purchase_date" Type="DateTime" Precision="3" />
+    <Property Name="Purchase_money" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="State" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Good_Quality" Relationship="ErpDBModel.FK_Good_Quality_Purchase_order" FromRole="Purchase_order" ToRole="Good_Quality" />
+    <NavigationProperty Name="Goods" Relationship="ErpDBModel.FK_Purchase_order_Goods" FromRole="Purchase_order" ToRole="Goods" />
+    <NavigationProperty Name="Purchase__Brrowing" Relationship="ErpDBModel.FK_Purchase__Brrowing_Purchase_order" FromRole="Purchase_order" ToRole="Purchase__Brrowing" />
+    <NavigationProperty Name="Purchase_brrowing" Relationship="ErpDBModel.FK_Purchase_brrowing_Purchase_order" FromRole="Purchase_order" ToRole="Purchase_brrowing" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_order_Users" FromRole="Purchase_order" ToRole="Users" />
+    <NavigationProperty Name="Purchase_Put" Relationship="ErpDBModel.FK_Purchase_Put_Purchase_order" FromRole="Purchase_order" ToRole="Purchase_Put" />
+    <NavigationProperty Name="Purchase_returns" Relationship="ErpDBModel.FK_Purchase_returns_Purchase_order" FromRole="Purchase_order" ToRole="Purchase_returns" />
+  </EntityType>
+  <EntityType Name="Purchase_Put">
+    <Key>
+      <PropertyRef Name="Putid" />
+    </Key>
+    <Property Name="Putid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Purchaseid" Type="Int32" />
+    <Property Name="Put_date" Type="DateTime" Precision="3" />
+    <Property Name="Putnumber" Type="Int32" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Goods_inventory" Relationship="ErpDBModel.FK_Goods_inventory_Purchase_Put" FromRole="Purchase_Put" ToRole="Goods_inventory" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_Put_Purchase_order" FromRole="Purchase_Put" ToRole="Purchase_order" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_Put_Users" FromRole="Purchase_Put" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Purchase_Return">
+    <Key>
+      <PropertyRef Name="Purchase_returnid" />
+    </Key>
+    <Property Name="Purchase_returnid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_num" Type="Int32" />
+    <Property Name="Purchase_monry" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Purchaseid" Type="Int32" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Returndate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Purchase_Return_Purchase_order" FromRole="Purchase_Return" ToRole="Sales" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_Return_Users" FromRole="Purchase_Return" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Purchase_returns">
+    <Key>
+      <PropertyRef Name="Purchase_returnsid" />
+    </Key>
+    <Property Name="Purchase_returnsid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_returndate" Type="DateTime" Precision="0" />
+    <Property Name="Purchase_orderid" Type="Int32" />
+    <Property Name="Product_name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Purchase_returnsnumber" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Purchase_returnsprice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Instructions" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_returns_Purchase_order" FromRole="Purchase_returns" ToRole="Purchase_order" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_returns_Users" FromRole="Purchase_returns" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="SalaryId" />
+    </Key>
+    <Property Name="SalaryId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeesId" Type="Int32" />
+    <Property Name="Base_salary" Type="Int32" />
+    <Property Name="Lunch_subsidies" Type="Int32" />
+    <Property Name="Taken" Type="Int32" />
+    <Property Name="The_fines" Type="Int32" />
+    <Property Name="Housing_subsidies" Type="Int32" />
+    <Property Name="Additional_benefits" Type="Int32" />
+    <Property Name="Thetax_amount" Type="Int32" />
+    <Property Name="Total_amount" Type="Int32" />
+    <Property Name="Issuing_date" Type="DateTime" Precision="0" />
+    <Property Name="Bankname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Salary_account" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Salary_stardate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employees" Relationship="ErpDBModel.FK_Salary_Employees" FromRole="Salary" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="SalesId" />
+    </Key>
+    <Property Name="SalesId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Sales_date" Type="DateTime" Precision="0" />
+    <Property Name="ProductsId" Type="Int32" />
+    <Property Name="Customersid" Type="Int32" />
+    <Property Name="Orderid" Type="Int32" />
+    <Property Name="Sales_number" Type="Int32" />
+    <Property Name="SumPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Settlement_method" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Amount_payable" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Real_pay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Unpaid_amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Salse_state" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Customer" Relationship="ErpDBModel.FK_Sales_Customer" FromRole="Sales" ToRole="Customer" />
+    <NavigationProperty Name="Goods_Delivery" Relationship="ErpDBModel.FK_Goods_Delivery_Sales" FromRole="Sales" ToRole="Goods_Delivery" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_Sales_OrderManager" FromRole="Sales" ToRole="OrderManager" />
+    <NavigationProperty Name="Products" Relationship="ErpDBModel.FK_Sales_Products" FromRole="Sales" ToRole="Products" />
+    <NavigationProperty Name="Purchase_Return" Relationship="ErpDBModel.FK_Purchase_Return_Purchase_order" FromRole="Sales" ToRole="Purchase_Return" />
+    <NavigationProperty Name="Sales_Brrowing" Relationship="ErpDBModel.FK_Sales_Brrowing_Sales" FromRole="Sales" ToRole="Sales_Brrowing" />
+    <NavigationProperty Name="Sales_delivery" Relationship="ErpDBModel.FK_Sales_delivery_Sales" FromRole="Sales" ToRole="Sales_delivery" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Sales_Users" FromRole="Sales" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sales_Brrowing">
+    <Key>
+      <PropertyRef Name="Sales_brrowid" />
+    </Key>
+    <Property Name="Sales_brrowid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Sales_brrowiddate" Type="DateTime" Precision="3" />
+    <Property Name="SalesId" Type="Int32" />
+    <Property Name="Usersid" Type="Int32" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Brrowing_Sales" FromRole="Sales_Brrowing" ToRole="Sales" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Sales_Brrowing_Users" FromRole="Sales_Brrowing" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sales_delivery">
+    <Key>
+      <PropertyRef Name="Deliveryid" />
+    </Key>
+    <Property Name="Deliveryid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Delivery_num" Type="Int32" />
+    <Property Name="Delivery_date" Type="DateTime" Precision="3" />
+    <Property Name="Salesid" Type="Int32" />
+    <Property Name="Handlers" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Usersid" Type="Int32" />
+    <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_delivery_Sales" FromRole="Sales_delivery" ToRole="Sales" />
+    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Sales_delivery_Users" FromRole="Sales_delivery" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="SupplierId" />
+    </Key>
+    <Property Name="SupplierId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Supplier_name" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Supplier__Introduction" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Postal_code" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Credibility" Type="Int32" />
+    <Property Name="Quality_state" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Contact" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Tel" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Deposit_bank" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Bank_number" Type="Int32" />
+    <Property Name="Fax" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="E_mail" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Goods" Relationship="ErpDBModel.FK_Goods_Supplier" FromRole="Supplier" ToRole="Goods" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Transport">
+    <Key>
+      <PropertyRef Name="Transportid" />
+    </Key>
+    <Property Name="Transportid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TransportName" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_OrderManager_Transport" FromRole="Transport" ToRole="OrderManager" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Usersid" />
+    </Key>
+    <Property Name="Usersid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Usersname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="UserReadname" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Users_password" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Gender" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="Start_time" Type="DateTime" Precision="0" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Department1" Relationship="ErpDBModel.FK_Users_Users" FromRole="Users" ToRole="Department" />
+    <NavigationProperty Name="Good_Quality" Relationship="ErpDBModel.FK_Good_Quality_Users" FromRole="Users" ToRole="Good_Quality" />
+    <NavigationProperty Name="Goods_Delivery" Relationship="ErpDBModel.FK_Goods_Delivery_Users" FromRole="Users" ToRole="Goods_Delivery" />
+    <NavigationProperty Name="Material" Relationship="ErpDBModel.FK_Material_Users" FromRole="Users" ToRole="Material" />
+    <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_OrderManager_Users" FromRole="Users" ToRole="OrderManager" />
+    <NavigationProperty Name="PlanOrder" Relationship="ErpDBModel.FK_PlanOrder_Users" FromRole="Users" ToRole="PlanOrder" />
+    <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Users" FromRole="Users" ToRole="Product" />
+    <NavigationProperty Name="Product_Quality" Relationship="ErpDBModel.FK_Product_Quality_Users" FromRole="Users" ToRole="Product_Quality" />
+    <NavigationProperty Name="Purchase__Brrowing" Relationship="ErpDBModel.FK_Purchase__Brrowing_Users" FromRole="Users" ToRole="Purchase__Brrowing" />
+    <NavigationProperty Name="Purchase_brrowing" Relationship="ErpDBModel.FK_Purchase_brrowing_Users" FromRole="Users" ToRole="Purchase_brrowing" />
+    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_order_Users" FromRole="Users" ToRole="Purchase_order" />
+    <NavigationProperty Name="Purchase_Put" Relationship="ErpDBModel.FK_Purchase_Put_Users" FromRole="Users" ToRole="Purchase_Put" />
+    <NavigationProperty Name="Purchase_Return" Relationship="ErpDBModel.FK_Purchase_Return_Users" FromRole="Users" ToRole="Purchase_Return" />
+    <NavigationProperty Name="Purchase_returns" Relationship="ErpDBModel.FK_Purchase_returns_Users" FromRole="Users" ToRole="Purchase_returns" />
+    <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Users" FromRole="Users" ToRole="Sales" />
+    <NavigationProperty Name="Sales_Brrowing" Relationship="ErpDBModel.FK_Sales_Brrowing_Users" FromRole="Users" ToRole="Sales_Brrowing" />
+    <NavigationProperty Name="Sales_delivery" Relationship="ErpDBModel.FK_Sales_delivery_Users" FromRole="Users" ToRole="Sales_delivery" />
+  </EntityType>
+  <Association Name="FK_OrderManager_Customer">
+    <End Role="Customer" Type="ErpDBModel.Customer" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="OrderManager">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Customer">
+    <End Role="Customer" Type="ErpDBModel.Customer" Multiplicity="0..1" />
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Customersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Department">
+    <End Role="Department" Type="ErpDBModel.Department" Multiplicity="0..1" />
+    <End Role="Employees" Type="ErpDBModel.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Department">
+    <End Role="Department" Type="ErpDBModel.Department" Multiplicity="0..1" />
+    <End Role="Material" Type="ErpDBModel.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Department">
+    <End Role="Department" Type="ErpDBModel.Department" Multiplicity="0..1" />
+    <End Role="Product" Type="ErpDBModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Departmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Users">
+    <End Role="Department" Type="ErpDBModel.Department" Multiplicity="0..1" />
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salary_Employees">
+    <End Role="Employees" Type="ErpDBModel.Employees" Multiplicity="0..1" />
+    <End Role="Salary" Type="ErpDBModel.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeesId" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="EmployeesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Good_Quality_Purchase_order">
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
+    <End Role="Good_Quality" Type="ErpDBModel.Good_Quality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_order">
+        <PropertyRef Name="Purchase_orderid" />
+      </Principal>
+      <Dependent Role="Good_Quality">
+        <PropertyRef Name="Purchase_orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Good_Quality_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Good_Quality" Type="ErpDBModel.Good_Quality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Good_Quality">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Lnven">
+    <End Role="Lnven" Type="ErpDBModel.Lnven" Multiplicity="0..1" />
+    <End Role="Goods" Type="ErpDBModel.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lnven">
+        <PropertyRef Name="Invenid" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="Categoryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Supplier">
+    <End Role="Supplier" Type="ErpDBModel.Supplier" Multiplicity="0..1" />
+    <End Role="Goods" Type="ErpDBModel.Goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="Goods">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Goods">
+    <End Role="Goods" Type="ErpDBModel.Goods" Multiplicity="0..1" />
+    <End Role="Material" Type="ErpDBModel.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods">
+        <PropertyRef Name="Goodsid" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Goodsid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_order_Goods">
+    <End Role="Goods" Type="ErpDBModel.Goods" Multiplicity="0..1" />
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods">
+        <PropertyRef Name="Goodsid" />
+      </Principal>
+      <Dependent Role="Purchase_order">
+        <PropertyRef Name="Goodsid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Delivery_Goods_inventory">
+    <End Role="Goods_inventory" Type="ErpDBModel.Goods_inventory" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="ErpDBModel.Goods_Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Goods_inventory">
+        <PropertyRef Name="InventoryId" />
+      </Principal>
+      <Dependent Role="Goods_Delivery">
+        <PropertyRef Name="GoodsInvenid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Delivery_Sales">
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="ErpDBModel.Goods_Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Goods_Delivery">
+        <PropertyRef Name="Saleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_Delivery_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="ErpDBModel.Goods_Delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Goods_Delivery">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_inventory_Goods_inventory">
+    <End Role="Product_Put" Type="ErpDBModel.Product_Put" Multiplicity="0..1" />
+    <End Role="Goods_inventory" Type="ErpDBModel.Goods_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Put">
+        <PropertyRef Name="Putid" />
+      </Principal>
+      <Dependent Role="Goods_inventory">
+        <PropertyRef Name="ProduPutid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goods_inventory_Purchase_Put">
+    <End Role="Purchase_Put" Type="ErpDBModel.Purchase_Put" Multiplicity="0..1" />
+    <End Role="Goods_inventory" Type="ErpDBModel.Goods_inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Put">
+        <PropertyRef Name="Putid" />
+      </Principal>
+      <Dependent Role="Goods_inventory">
+        <PropertyRef Name="Invenid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Lnven">
+    <End Role="Lnven" Type="ErpDBModel.Lnven" Multiplicity="0..1" />
+    <End Role="Products" Type="ErpDBModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lnven">
+        <PropertyRef Name="Invenid" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Material" Type="ErpDBModel.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderManager_Products">
+    <End Role="Products" Type="ErpDBModel.Products" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Productsid" />
+      </Principal>
+      <Dependent Role="OrderManager">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderManager_Transport">
+    <End Role="Transport" Type="ErpDBModel.Transport" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transport">
+        <PropertyRef Name="Transportid" />
+      </Principal>
+      <Dependent Role="OrderManager">
+        <PropertyRef Name="Transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderManager_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="OrderManager">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanOrder_OrderManager">
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="0..1" />
+    <End Role="PlanOrder" Type="ErpDBModel.PlanOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderManager">
+        <PropertyRef Name="Orderid" />
+      </Principal>
+      <Dependent Role="PlanOrder">
+        <PropertyRef Name="Orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_OrderManager">
+    <End Role="OrderManager" Type="ErpDBModel.OrderManager" Multiplicity="0..1" />
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderManager">
+        <PropertyRef Name="Orderid" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanOrder_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="PlanOrder" Type="ErpDBModel.PlanOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="PlanOrder">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_PlanOrder">
+    <End Role="PlanOrder" Type="ErpDBModel.PlanOrder" Multiplicity="0..1" />
+    <End Role="Product" Type="ErpDBModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanOrder">
+        <PropertyRef Name="PlanOrderid" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PlanOrderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Put_Product">
+    <End Role="Product" Type="ErpDBModel.Product" Multiplicity="0..1" />
+    <End Role="Product_Put" Type="ErpDBModel.Product_Put" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Productid" />
+      </Principal>
+      <Dependent Role="Product_Put">
+        <PropertyRef Name="Productid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Quality_Purchase_order">
+    <End Role="Product" Type="ErpDBModel.Product" Multiplicity="0..1" />
+    <End Role="Product_Quality" Type="ErpDBModel.Product_Quality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Productid" />
+      </Principal>
+      <Dependent Role="Product_Quality">
+        <PropertyRef Name="Product_orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Product" Type="ErpDBModel.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Quality_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Product_Quality" Type="ErpDBModel.Product_Quality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Product_Quality">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Products">
+    <End Role="Products" Type="ErpDBModel.Products" Multiplicity="0..1" />
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Productsid" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="ProductsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase__Brrowing_Purchase_order">
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase__Brrowing" Type="ErpDBModel.Purchase__Brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_order">
+        <PropertyRef Name="Purchase_orderid" />
+      </Principal>
+      <Dependent Role="Purchase__Brrowing">
+        <PropertyRef Name="Purchaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase__Brrowing_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase__Brrowing" Type="ErpDBModel.Purchase__Brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase__Brrowing">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_brrowing_Purchase_order">
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_brrowing" Type="ErpDBModel.Purchase_brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_order">
+        <PropertyRef Name="Purchase_orderid" />
+      </Principal>
+      <Dependent Role="Purchase_brrowing">
+        <PropertyRef Name="Purchaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_brrowing_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase_brrowing" Type="ErpDBModel.Purchase_brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase_brrowing">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_order_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase_order">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Put_Purchase_order">
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_Put" Type="ErpDBModel.Purchase_Put" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_order">
+        <PropertyRef Name="Purchase_orderid" />
+      </Principal>
+      <Dependent Role="Purchase_Put">
+        <PropertyRef Name="Purchaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_returns_Purchase_order">
+    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_returns" Type="ErpDBModel.Purchase_returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_order">
+        <PropertyRef Name="Purchase_orderid" />
+      </Principal>
+      <Dependent Role="Purchase_returns">
+        <PropertyRef Name="Purchase_orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Put_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase_Put" Type="ErpDBModel.Purchase_Put" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase_Put">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Return_Purchase_order">
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="0..1" />
+    <End Role="Purchase_Return" Type="ErpDBModel.Purchase_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Purchase_Return">
+        <PropertyRef Name="Purchaseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Return_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase_Return" Type="ErpDBModel.Purchase_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase_Return">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_returns_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Purchase_returns" Type="ErpDBModel.Purchase_returns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Purchase_returns">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Brrowing_Sales">
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="0..1" />
+    <End Role="Sales_Brrowing" Type="ErpDBModel.Sales_Brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Sales_Brrowing">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_delivery_Sales">
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="0..1" />
+    <End Role="Sales_delivery" Type="ErpDBModel.Sales_delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Sales_delivery">
+        <PropertyRef Name="Salesid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Sales" Type="ErpDBModel.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Brrowing_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Sales_Brrowing" Type="ErpDBModel.Sales_Brrowing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Sales_Brrowing">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_delivery_Users">
+    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
+    <End Role="Sales_delivery" Type="ErpDBModel.Sales_delivery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Usersid" />
+      </Principal>
+      <Dependent Role="Sales_delivery">
+        <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

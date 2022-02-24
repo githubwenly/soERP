@@ -1,0 +1,369 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.ss {
+    font-size: 23px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.dti {
+    color: #ff3232;
+    height: 48px;
+    border-bottom: 1px solid #ddd;
+    line-height: 48px;
+    font-size: 21px;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.colo {
+    width: 8px;
+    height: 20px;
+    background-color: red;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.tj {
+    background-color: #ff3232;
+    border: 1px solid #e90808;
+    color: white;
+    width: 210px;
+    height: 50px;
+    font-size: 21px;
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#contentt {
+    width: 1000px;
+    height: auto;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.mainn {
+    margin:0px auto;
+    width: 720px;
+    margin-bottom: 20px;
+    border: 1px solid red;
+    height: auto;
+    background: #fff;
+}
+
+    .mainn h2 {
+        color: #ff3232;
+        height: 48px;
+        line-height: 48px;
+    }
+
+    .mainn ul li {
+        margin-left:20px;
+        height: 113px;
+        width: 720px;
+        border-bottom: 1px solid #ddd;
+    }
+
+div.num {
+    width: 90px;
+    float: left;
+    height: 90px;
+}
+
+    div.num span {
+        width: 48px;
+        overflow: hidden;
+        display: block;
+        margin: 20px auto;
+        border: 1px solid #60a531;
+        line-height: 18px;
+        height: 36px;
+        padding: 6px 0px;
+        color: #60a531;
+        text-align: center;
+        font-size: 12px;
+    }
+
+.li_detail {
+    float: left;
+    width: 600px;
+}
+
+    .li_detail h2 {
+        height: 40px;
+        line-height: 40px;
+        margin-top: 10px;
+    }
+
+    .li_detail p {
+        line-height: 20px;
+        font-size: 14px;
+        color: #999;
+        padding-right: 40px;
+        font-family: Microsoft Yahei;
+    }
+
+div.info {
+    height: 36px;
+}
+
+    div.info span {
+        padding-right: 40px;
+        line-height: 40px;
+        color: #999;
+        font-size: 12px;
+    }
+
+
+.li_detail p a {
+    font-size: 14px;
+    color: #999;
+}
+
+    .li_detail p a:hover {
+        color: #666;
+    }
+
+div.li_detail h2 a {
+    font-size: 21px;
+    color: black;
+    font-weight: normal;
+}
+
+    div.li_detail h2 a:hover {
+        text-decoration: underline;
+        color: #fa3232;
+    }
+
+.info a {
+    color: #999;
+}
+
+    .info a:hover {
+        color: #666;
+    }
+
+#rightt {
+    width: 250px;
+    height: auto;
+    border: 1px solid red;
+    float: right;
+    padding: 10px;
+    background: #fff;
+}
+
+.newpost_btn_index {
+    display: block;
+    height: 44px;
+    width: 210px;
+    background: #ff3232;
+    margin: 20px auto 0px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.forum_right_style3 dl {
+    padding: 10px 20px 20px;
+    height:150px;
+    overflow:hidden;
+}
+.forum_right_style3 .dll {
+    padding: 10px 5px 5px 5px;
+    height:auto;
+    overflow:hidden;
+}
+
+.forum_right_dt {
+    display: block;
+    line-height: 50px;
+    height: 50px;
+    font-size: 18px;
+    color: #ff3232;
+    font-family: Microsoft Yahei;
+    position: relative;
+}
+.forum_right_dtt {
+    padding:10px 10px 10px 15px;
+    display: block;
+    line-height: 50px;
+    height: 50px;
+    font-size: 18px;
+    color: #ff3232;
+    font-family: Microsoft Yahei;
+    position: relative;
+}
+
+.forum_right_style3 dd {
+    height: 30px;
+    width: 210px;
+    padding: 10px 0px;
+    position: relative;
+}
+
+    .forum_right_style3 dd a.img, .forum_right_style3 dd a.img img {
+        height: 36px;
+        width: 36px;
+        display: Block;
+        float: left;
+    }
+
+    .forum_right_style3 dd p {
+        height: 36px;
+        line-height: 18px;
+        color: #333;
+        font-size: 14px;
+        color: #666;
+        font-family: Microsoft Yahei;
+        float: left;
+        width: 164px;
+        padding-left: 10px;
+    }
+
+        .forum_right_style3 dd p a {
+            color: #666;
+            display: block;
+            height: 36px;
+            overflow: hidden;
+        }
+
+            .forum_right_style3 dd p a:hover {
+                color: #fa3232;
+            }
+
+.forum_right_style5 {
+    width: 250px;
+}
+
+.forum_right dl {
+    padding: 10px 20px 20px;
+}
+
+.forum_right_style5 dd {
+    height: 36px;
+    width: 210px;
+    padding: 10px 0px;
+    position: relative;
+}
+
+.forum_right_style3 dd em {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #aaa;
+    text-align: center;
+    color: #fff;
+    line-height: 20px;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+    .forum_right_style3 dd em.rank1 {
+        background: #ff3232;
+    }
+
+.forum_right_style3 div.c h4 {
+    font-size: 12px;
+    line-height: 36px;
+    height: 36px;
+    font-weight: bold;
+    margin-top: 0px;
+    position: relative;
+    float: left;
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-indent: 10px;
+}
+
+.forum_right_style3 div.c span {
+    font-size: 12px;
+    color: #666;
+    line-height: 36px;
+    display: block;
+    width: 60px;
+    float: right;
+    text-align: right;
+}
+
+.forum_right_style3 div.c h4 a {
+    color: black;
+}
+
+dl dt .fortab {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    float: right;
+    margin-left: 10px;
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    dl dt .fortab:hover {
+        color: #ff3232;
+        text-decoration: underline;
+    }
+
+.user_dd dd {
+    height: 36px;
+    width: 210px;
+    padding: 10px 0px;
+    position: relative;
+}
+
+.btn_add div.c {
+    height: 66px;
+    width: 134px;
+    float: right;
+}
+
+    .btn_add div.c span {
+        float: left;
+    }
+
+
+    .btn_add div.c h4 {
+        font-size: 14px;
+        line-height: 28px;
+        height: 28px;
+        font-weight: bold;
+        margin-top: 6px;
+        position: relative;
+        width: auto;
+    }
+
+.forum_right_style2 div.c span {
+    font-size: 12px;
+    color: #666;
+    line-height: 28px;
+    width: auto;
+    margin-left: 10px;
+}
+
+.btn_add dl dd.dd2 {
+    width: auto;
+    height: 66px;
+}
+
+    .btn_add dl dd.dd2 .img img {
+        width: 66px;
+        height: 66px;
+    }
+
+#day_btn, #week_btn, #month_btn {
+    display: none;
+}

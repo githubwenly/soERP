@@ -1,0 +1,268 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css" />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <style>
+        .lyear-layout-content {
+            padding-top: 0px !important;
+            padding-left: 0px !important;
+        }
+
+        .select {
+            width: 320px !important;
+        }
+    </style>
+    <script>
+        var pageSize = 5;//每页显示的记录条数
+        var curPage = 0;  //当前页
+        var lastPage; //最后页
+        var direct = 0; //方向
+        var len; //总行数
+        var page;//总页数
+        var begin;
+        var end;
+
+        $(document).ready(function display() {
+            len = $("#cks tr").length - 1;//求这个表的总行数（ListData是table的id）
+            if (len < 0) len = 0
+            page = len % pageSize == 0 ? len / pageSize : Math.floor(len / pageSize) + 1;//根据记录条数，计算页数
+            curPage = 1; // 设置当前为第一页
+            displayPage(1);//显示第一页
+
+            document.getElementById("rowspage").innerHTML = pageSize; // 显示的记录条数
+            document.getElementById("total").innerHTML = len; // 显示数据量
+            document.getElementById("btn0").innerHTML = curPage + "/" + page;// 显示当前多少页
+
+            $("#FirstPage").click(function firstPage() {
+                curPage = 1;
+                direct = 0;
+                displayPage();
+            });
+            $("#PreviousPage").click(function frontPage() {
+                direct = -1;
+                displayPage();
+            });
+            $("#NextPage").click(function nextPage() {
+                direct = 1;
+                displayPage();
+            });
+            $("#LastPage").click(function lastPage() {
+                curPage = page;
+                direct = 0;
+                displayPage();
+            });
+            $("#btn5").click(function changePage() {
+                curPage = document.getElementById("changePage").value * 1;
+                if (!/^[1-9]\d*$/.test(curPage)) {
+                    alert("请输入正整数！");
+                    return;
+                }
+                if (curPage > page) {
+                    alert("超出数据页面！");
+                    return;
+                }
+                direct = 0;
+                displayPage();
+            });
+        });
+
+        function displayPage() {
+            if (curPage <= 1 && direct == -1) {
+                direct = 0;
+                alert("已经是第一页了！");
+                return;
+            } else if (curPage >= page && direct == 1) {
+                direct = 0;
+                alert("已经是最后一页了！");
+                return;
+            }
+            lastPage = curPage;
+
+            // 修复当len=1时，curPage计算得0的bug
+            if (len > pageSize) {
+                curPage = ((curPage + direct + len) % len);
+            } else {
+                curPage = 1;
+            }
+            document.getElementById("btn0").innerHTML = curPage + "/" + page; // 显示当前多少页
+            begin = (curPage - 1) * pageSize + 1;// 起始记录号
+            end = begin + 1 * pageSize - 1;    // 末尾记录号
+            if (end > len) end = len;
+            $("#cks tr").hide();// 首先,设置这行为隐藏
+            $("#cks tr").each(function (i) {// 然后，通过条件判断决定本行是否恢复显示
+                if ((i >= begin && i <= end) || i == 0)//显示begin<=x<=end的记录
+                    $(this).show();
+            });
+        }
+        //将时间戳转换为日期
+        function GetDateFormat(str) {
+            return new Date(parseInt(str.substr(6, 13))).toLocaleDateString();
+        }
+        $(function () {
+            //详情
+            $(".xq").click(function () {
+                var goodsid = $(".xq").parent().siblings().eq(1).text();
+                $.ajax({
+                    url: "Personnel/IndexCenten",
+                    data: { "id": goodsid },
+                    success: function (data) {
+                        $("#antim").text(GetDateFormat(data.Annountime));
+                        $("#anpeo").text(data.Annountpeople);
+                        $("#antxt").text(data.Annountext);
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+    <main class="lyear-layout-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card bg-primary">
+                        <div class="card-body clearfix">
+                            <div class="pull-right">
+                                <p class="h6 text-white m-t-0">月收入</p>
+                                <p class="h3 text-white m-b-0">@ViewBag.sal</p>
+                            </div>
+                            <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fa-1-5x"></i></span> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card bg-danger">
+                        <div class="card-body clearfix">
+                            <div class="pull-right">
+                                <p class="h6 text-white m-t-0">月支出</p>
+                                <p class="h3 text-white m-b-0">@ViewBag.pur</p>
+                            </div>
+                            <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card bg-success">
+                        <div class="card-body clearfix">
+                            <div class="pull-right">
+                                <p class="h6 text-white m-t-0">订单数</p>
+                                <p class="h3 text-white m-b-0">@ViewBag.ord</p>
+                            </div>
+                            <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card bg-purple">
+                        <div class="card-body clearfix">
+                            <div class="pull-right">
+                                <p class="h6 text-white m-t-0">员工数</p>
+                                <p class="h3 text-white m-b-0">@ViewBag.emp</p>
+                            </div>
+                            <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" style="height: 500px;">
+                        <div class="card-header">
+                            <h4>年中销售</h4>
+                            <span>销售市场</span>
+                        </div>
+                        <div class="card-header-detail" style="width:100%;height:27px;">
+                            <h4 style="font-weight: bold;display:block;float:left;">产供销售情况</h4>
+                            <h4 style="font-weight: bold;margin-left:600px;display:block;float:left;">销售占比</h4>
+                        </div>
+                        <div class="card-body lyear-layout-sidebar-scroll">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <canvas id="chart-line-3" width="400" height="240"></canvas>
+                                </div>
+                                <div class="col-lg-6" style="padding-left: 150px;">
+                                    <canvas id="chart-pie" width="336" height="336"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="mar" value="@ViewBag.mar" />
+        <input type="hidden" id="apr" value="@ViewBag.apr" />
+        <input type="hidden" id="may" value="@ViewBag.may" />
+        <input type="hidden" id="jun" value="@ViewBag.jun" />
+        <input type="hidden" id="ram" value="@ViewBag.ram" />
+        <input type="hidden" id="rpa" value="@ViewBag.rpa" />
+        <input type="hidden" id="yam" value="@ViewBag.yam" />
+        <input type="hidden" id="nuj" value="@ViewBag.nuj" />
+        <input type="hidden" id="first" value="@ViewBag.fis" />
+        <input type="hidden" id="second" value="@ViewBag.sec" />
+        <input type="hidden" id="third" value="@ViewBag.thi" />
+        <input type="hidden" id="fname" value="@ViewBag.fname" />
+        <input type="hidden" id="sname" value="@ViewBag.sname" />
+        <input type="hidden" id="tname" value="@ViewBag.tname" />
+    </main>
+
+    <script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
+    <script type="text/javascript" src="/js/Chart.js"></script>
+    <script type="text/javascript" src="/js/main.min.js"></script>
+    <script>
+        new Chart($("#chart-line-3"), {
+            type: 'line',
+            data: {
+                labels: ["三月", "四月", "五月", "六月"],
+                datasets: [{
+                    label: "收入",
+                    fill: false,
+                    backgroundColor: "#36a2eb",
+                    borderColor: "#36a2eb",
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    data: [$("#mar").val(), $("#apr").val(), $("#may").val(), $("#jun").val()]
+                },
+                {
+                    label: "支出",
+                    fill: false,
+                    borderColor: "#ff6384",
+                    backgroundColor: "#ff6384",
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    data: [$("#ram").val(), $("#rpa").val(), $("#yam").val(), $("#nuj").val()]
+                }]
+            },
+            options: {}
+        });
+        new Chart($("#chart-pie"), {
+            type: 'pie',
+            data: {
+                labels: [$("#fname").val(), $("#sname").val(), $("#tname").val()],
+                datasets: [{
+                    data: [$("#first").val(), $("#second").val(), $("#third").val()],
+                    backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)']
+                }]
+            },
+            options: {
+                responsive: false
+            }
+        });
+    </script>
+</body>
+</html>

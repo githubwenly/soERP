@@ -1,0 +1,863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{320173CF-2DE0-458B-A32C-B1AC3A8582B0}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoERP</RootNamespace>
+    <AssemblyName>SoERP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="DAL\DALcs.cs" />
+    <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Announcements.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dermal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employees.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Goods.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Goods_Delivery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Goods_inventory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Good_Quality.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lnven.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Material.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderManager.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlanOrder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Put.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Quality.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase_brrowing.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase_order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase_Put.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase_Return.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase_returns.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Purchase__Brrowing.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Salary.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_Brrowing.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_delivery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transport.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\demo.css" />
+    <Content Include="assets\css\now-ui-kit.css" />
+    <Content Include="assets\img\apple-icon.png" />
+    <Content Include="assets\img\avatar.jpg" />
+    <Content Include="assets\img\bg1.jpg" />
+    <Content Include="assets\img\bg11.jpg" />
+    <Content Include="assets\img\bg3.jpg" />
+    <Content Include="assets\img\bg4.jpg" />
+    <Content Include="assets\img\bg5.jpg" />
+    <Content Include="assets\img\bg6.jpg" />
+    <Content Include="assets\img\bg7.jpg" />
+    <Content Include="assets\img\bg8.jpg" />
+    <Content Include="assets\img\blurred-image-1.jpg" />
+    <Content Include="assets\img\creative-tim-white-slim2.png" />
+    <Content Include="assets\img\default-avatar.png" />
+    <Content Include="assets\img\eva.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\flags\AD.png" />
+    <Content Include="assets\img\flags\AE.png" />
+    <Content Include="assets\img\flags\AG.png" />
+    <Content Include="assets\img\flags\AM.png" />
+    <Content Include="assets\img\flags\AR.png" />
+    <Content Include="assets\img\flags\AT.png" />
+    <Content Include="assets\img\flags\AU.png" />
+    <Content Include="assets\img\flags\BE.png" />
+    <Content Include="assets\img\flags\BF.png" />
+    <Content Include="assets\img\flags\BG.png" />
+    <Content Include="assets\img\flags\BO.png" />
+    <Content Include="assets\img\flags\BR.png" />
+    <Content Include="assets\img\flags\CA.png" />
+    <Content Include="assets\img\flags\CD.png" />
+    <Content Include="assets\img\flags\CG.png" />
+    <Content Include="assets\img\flags\CH.png" />
+    <Content Include="assets\img\flags\CL.png" />
+    <Content Include="assets\img\flags\CM.png" />
+    <Content Include="assets\img\flags\CN.png" />
+    <Content Include="assets\img\flags\CO.png" />
+    <Content Include="assets\img\flags\CZ.png" />
+    <Content Include="assets\img\flags\DE.png" />
+    <Content Include="assets\img\flags\DJ.png" />
+    <Content Include="assets\img\flags\DK.png" />
+    <Content Include="assets\img\flags\DZ.png" />
+    <Content Include="assets\img\flags\EE.png" />
+    <Content Include="assets\img\flags\EG.png" />
+    <Content Include="assets\img\flags\ES.png" />
+    <Content Include="assets\img\flags\FI.png" />
+    <Content Include="assets\img\flags\FR.png" />
+    <Content Include="assets\img\flags\GA.png" />
+    <Content Include="assets\img\flags\GB.png" />
+    <Content Include="assets\img\flags\GM.png" />
+    <Content Include="assets\img\flags\GT.png" />
+    <Content Include="assets\img\flags\HN.png" />
+    <Content Include="assets\img\flags\HT.png" />
+    <Content Include="assets\img\flags\HU.png" />
+    <Content Include="assets\img\flags\ID.png" />
+    <Content Include="assets\img\flags\IE.png" />
+    <Content Include="assets\img\flags\IL.png" />
+    <Content Include="assets\img\flags\IN.png" />
+    <Content Include="assets\img\flags\IQ.png" />
+    <Content Include="assets\img\flags\IR.png" />
+    <Content Include="assets\img\flags\IT.png" />
+    <Content Include="assets\img\flags\JM.png" />
+    <Content Include="assets\img\flags\JO.png" />
+    <Content Include="assets\img\flags\JP.png" />
+    <Content Include="assets\img\flags\KG.png" />
+    <Content Include="assets\img\flags\KN.png" />
+    <Content Include="assets\img\flags\KP.png" />
+    <Content Include="assets\img\flags\KR.png" />
+    <Content Include="assets\img\flags\KW.png" />
+    <Content Include="assets\img\flags\KZ.png" />
+    <Content Include="assets\img\flags\LA.png" />
+    <Content Include="assets\img\flags\LB.png" />
+    <Content Include="assets\img\flags\LC.png" />
+    <Content Include="assets\img\flags\LS.png" />
+    <Content Include="assets\img\flags\LU.png" />
+    <Content Include="assets\img\flags\LV.png" />
+    <Content Include="assets\img\flags\MG.png" />
+    <Content Include="assets\img\flags\MK.png" />
+    <Content Include="assets\img\flags\ML.png" />
+    <Content Include="assets\img\flags\MM.png" />
+    <Content Include="assets\img\flags\MT.png" />
+    <Content Include="assets\img\flags\MX.png" />
+    <Content Include="assets\img\flags\NA.png" />
+    <Content Include="assets\img\flags\NE.png" />
+    <Content Include="assets\img\flags\NG.png" />
+    <Content Include="assets\img\flags\NI.png" />
+    <Content Include="assets\img\flags\NL.png" />
+    <Content Include="assets\img\flags\NO.png" />
+    <Content Include="assets\img\flags\OM.png" />
+    <Content Include="assets\img\flags\PA.png" />
+    <Content Include="assets\img\flags\PE.png" />
+    <Content Include="assets\img\flags\PG.png" />
+    <Content Include="assets\img\flags\PK.png" />
+    <Content Include="assets\img\flags\PL.png" />
+    <Content Include="assets\img\flags\PT.png" />
+    <Content Include="assets\img\flags\PY.png" />
+    <Content Include="assets\img\flags\QA.png" />
+    <Content Include="assets\img\flags\RO.png" />
+    <Content Include="assets\img\flags\RU.png" />
+    <Content Include="assets\img\flags\RW.png" />
+    <Content Include="assets\img\flags\SA.png" />
+    <Content Include="assets\img\flags\SE.png" />
+    <Content Include="assets\img\flags\SG.png" />
+    <Content Include="assets\img\flags\SL.png" />
+    <Content Include="assets\img\flags\SN.png" />
+    <Content Include="assets\img\flags\SO.png" />
+    <Content Include="assets\img\flags\SV.png" />
+    <Content Include="assets\img\flags\TD.png" />
+    <Content Include="assets\img\flags\TJ.png" />
+    <Content Include="assets\img\flags\TL.png" />
+    <Content Include="assets\img\flags\TR.png" />
+    <Content Include="assets\img\flags\TZ.png" />
+    <Content Include="assets\img\flags\UA.png" />
+    <Content Include="assets\img\flags\US.png" />
+    <Content Include="assets\img\flags\VE.png" />
+    <Content Include="assets\img\flags\VN.png" />
+    <Content Include="assets\img\flags\YE.png" />
+    <Content Include="assets\img\header.jpg" />
+    <Content Include="assets\img\hero-image-1.png" />
+    <Content Include="assets\img\hero-image-2.png" />
+    <Content Include="assets\img\hero-image-3.png" />
+    <Content Include="assets\img\invision-white-slim.png" />
+    <Content Include="assets\img\landing.jpg" />
+    <Content Include="assets\img\login.jpg" />
+    <Content Include="assets\img\logo-square.jpg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\now-logo.png" />
+    <Content Include="assets\img\nucleo-logo.svg" />
+    <Content Include="assets\img\profile.jpg" />
+    <Content Include="assets\img\ryan.jpg" />
+    <Content Include="assets\js\core\bootstrap.min.js" />
+    <Content Include="assets\js\core\jquery.3.2.1.min.js" />
+    <Content Include="assets\js\core\popper.min.js" />
+    <Content Include="assets\js\now-ui-kit.js" />
+    <Content Include="assets\js\plugins\bootstrap-datepicker.js" />
+    <Content Include="assets\js\plugins\bootstrap-switch.js" />
+    <Content Include="assets\js\plugins\jquery.sharrre.js" />
+    <Content Include="assets\js\plugins\nouislider.min.js" />
+    <Content Include="Content\sweetalert\sweetalert.min.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\issue.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="css\materialdesignicons.min.css" />
+    <Content Include="css\style.min.css" />
+    <Content Include="css\sweetalert.css" />
+    <Content Include="fonts\materialdesignicons.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\materialdesignicons.eot" />
+    <Content Include="fonts\materialdesignicons.ttf" />
+    <Content Include="fonts\materialdesignicons.woff" />
+    <Content Include="fonts\materialdesignicons.woff2" />
+    <Content Include="images\avatar.jpg" />
+    <Content Include="images\beauty.jpg" />
+    <Content Include="images\上一页.png" />
+    <Content Include="images\下一页.png" />
+    <Content Include="images\尾页.png" />
+    <Content Include="images\首页.png" />
+    <Content Include="js\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
+    <Content Include="js\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker3.css.map" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker3.min.css.map" />
+    <Content Include="assets\fonts\nucleo-outline.eot" />
+    <Content Include="assets\fonts\nucleo-outline.ttf" />
+    <Content Include="assets\fonts\nucleo-outline.woff" />
+    <Content Include="assets\fonts\nucleo-outline.woff2" />
+    <Content Include="assets\sass\now-ui-kit.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_badges.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_buttons.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_datepicker.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_dropdown.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_inputs.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_modals.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_navbar.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_pages.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_popovers.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_transparency.scss" />
+    <Content Include="assets\sass\now-ui-kit\mixins\_vendor-prefixes.scss" />
+    <Content Include="assets\sass\now-ui-kit\plugins\_plugin-bootstrap-switch.scss" />
+    <Content Include="assets\sass\now-ui-kit\plugins\_plugin-datepicker.scss" />
+    <Content Include="assets\sass\now-ui-kit\plugins\_plugin-nouislider.scss" />
+    <Content Include="assets\sass\now-ui-kit\_alerts.scss" />
+    <Content Include="assets\sass\now-ui-kit\_badges.scss" />
+    <Content Include="assets\sass\now-ui-kit\_buttons.scss" />
+    <Content Include="assets\sass\now-ui-kit\_cards.scss" />
+    <Content Include="assets\sass\now-ui-kit\_carousel.scss" />
+    <Content Include="assets\sass\now-ui-kit\_checkboxes-radio.scss" />
+    <Content Include="assets\sass\now-ui-kit\_dropdown.scss" />
+    <Content Include="assets\sass\now-ui-kit\_example-pages.scss" />
+    <Content Include="assets\sass\now-ui-kit\_footers.scss" />
+    <Content Include="assets\sass\now-ui-kit\_images.scss" />
+    <Content Include="assets\sass\now-ui-kit\_inputs.scss" />
+    <Content Include="assets\sass\now-ui-kit\_misc.scss" />
+    <Content Include="assets\sass\now-ui-kit\_mixins.scss" />
+    <Content Include="assets\sass\now-ui-kit\_modals.scss" />
+    <Content Include="assets\sass\now-ui-kit\_navbar.scss" />
+    <Content Include="assets\sass\now-ui-kit\_nucleo-outline.scss" />
+    <Content Include="assets\sass\now-ui-kit\_pagination.scss" />
+    <Content Include="assets\sass\now-ui-kit\_pills.scss" />
+    <Content Include="assets\sass\now-ui-kit\_popups.scss" />
+    <Content Include="assets\sass\now-ui-kit\_progress.scss" />
+    <Content Include="assets\sass\now-ui-kit\_responsive.scss" />
+    <Content Include="assets\sass\now-ui-kit\_sections.scss" />
+    <Content Include="assets\sass\now-ui-kit\_social-buttons.scss" />
+    <Content Include="assets\sass\now-ui-kit\_tabs.scss" />
+    <Content Include="assets\sass\now-ui-kit\_typography.scss" />
+    <Content Include="assets\sass\now-ui-kit\_variables.scss" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="js\jquery.table2excel.js" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="images\captcha.png" />
+    <Content Include="images\gallery\1.jpg" />
+    <Content Include="images\gallery\10.jpg" />
+    <Content Include="images\gallery\11.jpg" />
+    <Content Include="images\gallery\13.jpg" />
+    <Content Include="images\gallery\14.jpg" />
+    <Content Include="images\gallery\15.jpg" />
+    <Content Include="images\gallery\16.jpg" />
+    <Content Include="images\gallery\17.jpg" />
+    <Content Include="images\gallery\2.jpg" />
+    <Content Include="images\gallery\3.jpg" />
+    <Content Include="images\gallery\4.jpg" />
+    <Content Include="images\gallery\5.jpg" />
+    <Content Include="images\gallery\6.jpg" />
+    <Content Include="images\gallery\7.jpg" />
+    <Content Include="images\gallery\8.jpg" />
+    <Content Include="images\gallery\9.jpg" />
+    <Content Include="images\img-slide-1.jpg" />
+    <Content Include="images\img-slide-2.jpg" />
+    <Content Include="images\img-slide-3.jpg" />
+    <Content Include="images\img-slide-4.jpg" />
+    <Content Include="images\img-slide-5.jpg" />
+    <Content Include="images\logo-ico.png" />
+    <Content Include="images\logo-sidebar.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo1.png" />
+    <Content Include="images\users\avatar.jpg" />
+    <Content Include="images\users\beauty.jpg" />
+    <Content Include="js\bootstrap-colorpicker\bootstrap-colorpicker.js" />
+    <Content Include="js\bootstrap-colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="js\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
+    <Content Include="js\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
+    <Content Include="js\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="js\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="js\bootstrap-colorpicker\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="js\bootstrap-colorpicker\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="js\bootstrap-colorpicker\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker3.css" />
+    <Content Include="js\bootstrap-datepicker\bootstrap-datepicker3.min.css" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="js\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\af.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ar-ma.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ar-sa.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ar-tn.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ar.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\az.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\be.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\bg.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\bn.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\bo.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\br.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\bs.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ca.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\cs.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\cv.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\cy.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\da.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\de-at.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\de.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\el.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\en-au.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\en-ca.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\en-gb.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\eo.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\es.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\et.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\eu.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fa.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fi.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fo.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fr-ca.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fr.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\fy.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\gl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\he.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\hi.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\hr.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\hu.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\hy-am.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\id.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\is.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\it.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ja.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\jv.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ka.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\km.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ko.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\lb.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\lt.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\lv.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\me.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\mk.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ml.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\mr.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ms-my.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ms.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\my.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\nb.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ne.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\nl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\nn.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\pl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\pt-br.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\pt.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ro.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ru.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\si.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sk.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sq.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sr-cyrl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sr.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\sv.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\ta.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\th.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\tl-ph.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\tr.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\tzl.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\tzm-latn.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\tzm.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\uk.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\uz.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\vi.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\zh-cn.js" />
+    <Content Include="js\bootstrap-datetimepicker\locale\zh-tw.js" />
+    <Content Include="js\bootstrap-datetimepicker\moment.min.js" />
+    <Content Include="js\bootstrap-notify.min.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Chart.js" />
+    <Content Include="js\chosen.jquery.min.js" />
+    <Content Include="js\ion-rangeslider\ion.rangeSlider.min.css" />
+    <Content Include="js\ion-rangeslider\ion.rangeSlider.min.js" />
+    <Content Include="js\jconfirm\jquery-confirm.min.css" />
+    <Content Include="js\jconfirm\jquery-confirm.min.js" />
+    <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery-3.3.1.min.js" />
+    <Content Include="js\jquery-tags-input\jquery.tagsinput.min.css" />
+    <Content Include="js\jquery-tags-input\jquery.tagsinput.min.js" />
+    <Content Include="js\jquery-ui-datepicker.js" />
+    <Content Include="js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\lightyear.js" />
+    <Content Include="js\main.min.js" />
+    <Content Include="js\perfect-scrollbar.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Personnel\Index.cshtml" />
+    <Content Include="Views\Personnel\IndexConten.cshtml" />
+    <Content Include="Views\Personnel\BusinessManagementPersonnelManagement.cshtml" />
+    <Content Include="Views\Personnel\BusinessManagementSalaryManagement.cshtml" />
+    <Content Include="Views\Personnel\BusinessManagementCorporateAnnouncements.cshtml" />
+    <Content Include="Views\Personnel\CustomerManagerInfo.cshtml" />
+    <Content Include="Views\Personnel\CustomerManagerCustomerInsertInfo.cshtml" />
+    <Content Include="Views\Personnel\CustomerManagerOrder.cshtml" />
+    <Content Include="Views\Personnel\CustomerManagerOrderInsert.cshtml" />
+    <Content Include="Views\Personnel\CustomerManagerOrderTracking.cshtml" />
+    <Content Include="Views\Personnel\SystemManagementUserManagement.cshtml" />
+    <Content Include="Views\Personnel\SystemManagementDivisionalManagement.cshtml" />
+    <Content Include="Views\Personnel\SystemManagementAnnouncementOfTheManagement.cshtml" />
+    <Content Include="Views\Management\ProductionManagerPlanManager.cshtml" />
+    <Content Include="Views\Management\ProductionManagerAcquisitionManager.cshtml" />
+    <Content Include="Views\Management\ProductionManagegrProductsProduction.cshtml" />
+    <Content Include="Views\Management\PurchasingManagerAddPurchaseOrder.cshtml" />
+    <Content Include="Views\Management\PurchasingManagerPurchaseOrderManager.cshtml" />
+    <Content Include="Views\Management\PurchasingManagerProcurementStatistics.cshtml" />
+    <Content Include="Views\Management\MaterialInventoryManager.cshtml" />
+    <Content Include="Views\Management\MaterialInventoryManagerAddMaterialReceipt.cshtml" />
+    <Content Include="Views\Management\MateriaInventoryManagerMaterialReceiptManage.cshtml" />
+    <Content Include="Views\Management\MaterialInventoryManagerAddMaterialDeliveryList.cshtml" />
+    <Content Include="Views\Management\MaterialInventoryManagerMaterialDeliveryListManagemen.cshtml" />
+    <Content Include="Views\Management\CurrentManagementSalesStatement.cshtml" />
+    <Content Include="Views\Management\CurrentManagementSalesInvoice.cshtml" />
+    <Content Include="Views\Management\CurrentManagementPurchaseStatement.cshtml" />
+    <Content Include="Views\Management\CurrentManagementPurchaseReturns.cshtml" />
+    <Content Include="Views\Management\SalesManagementSalesOrderManagement.cshtml" />
+    <Content Include="Views\Management\SalesManagementPendingOrder.cshtml" />
+    <Content Include="Views\Management\SalesManagementSalesStatistics.cshtml" />
+    <Content Include="Views\Management\QualityManagementMaterialsToBeInspected.cshtml" />
+    <Content Include="Views\Management\QualityManagementMaterialInspectionList.cshtml" />
+    <Content Include="Views\Management\QualityManagementWaitingForTheProduct.cshtml" />
+    <Content Include="Views\Management\QualityManagementProductQualityCheckList.cshtml" />
+    <Content Include="Views\Management\BasicInformationManagementSupplier.cshtml" />
+    <Content Include="Views\Management\BasicInformationManagementCommodityInformation.cshtml" />
+    <Content Include="Views\Management\BasicInformationManagementProductInformation.cshtml" />
+    <Content Include="Views\Management\ProductManagerReceipt.cshtml" />
+    <Content Include="Views\Management\ProductManagerReceiptManage.cshtml" />
+    <Content Include="Views\Manager\Manager.cshtml" />
+    <Content Include="Views\Manager\Message.cshtml" />
+    <Content Include="Views\Personnel\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61985/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

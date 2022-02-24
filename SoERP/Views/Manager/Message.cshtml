@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Message</title>
+    <link href="~/css/issue.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="mainn">
+        <div class="colo"></div>
+        <p class="dti">原料消息</p>
+        <form method="post">
+            <ul>
+                <li>
+                    <div class="li_detail">
+                        <h2>
+                            <a href="/Management/MaterialInventoryManager">库存紧缺</a></h2>
+                        <p>
+                            @{foreach (var item in @ViewBag.sal)
+                              {
+                            <a href='JavaScript:viod(0)'>@item.Item1</a>                                  
+                              }}
+                        </p>          
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="mainn">
+        <div class="colo"></div>
+        <p class="dti">产品消息</p>
+        <form method="post">
+            <ul>
+                <li>
+                    <div class="li_detail">
+                        <h2>
+                            <a href="/Management/MaterialInventoryManager">库存紧缺</a></h2>
+                        <p>
+                             @{foreach (var item in @ViewBag.cal)
+                              {
+                            <a href='JavaScript:viod(0)'>@item.Item1</a>                                  
+                              }}
+                        </p>          
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>

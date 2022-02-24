@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ErpDBModelStoreContainer" CdmEntityContainer="ErpDBEntities">
+    <EntitySetMapping Name="Announcements">
+      <EntityTypeMapping TypeName="ErpDBModel.Announcements">
+        <MappingFragment StoreEntitySet="Announcements">
+          <ScalarProperty Name="Annountid" ColumnName="Annountid" />
+          <ScalarProperty Name="Annountime" ColumnName="Annountime" />
+          <ScalarProperty Name="Announttitle" ColumnName="Announttitle" />
+          <ScalarProperty Name="Annountpeople" ColumnName="Annountpeople" />
+          <ScalarProperty Name="Annountext" ColumnName="Annountext" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="ErpDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Customername" ColumnName="Customername" />
+          <ScalarProperty Name="Referred" ColumnName="Referred" />
+          <ScalarProperty Name="Zip_code" ColumnName="Zip_code" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Concat_phone" ColumnName="Concat_phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="ErpDBModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Departmentname" ColumnName="Departmentname" />
+          <ScalarProperty Name="DepartmentReadname" ColumnName="DepartmentReadname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dermal">
+      <EntityTypeMapping TypeName="ErpDBModel.Dermal">
+        <MappingFragment StoreEntitySet="Dermal">
+          <ScalarProperty Name="Dermalid" ColumnName="Dermalid" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Dermal_tname" ColumnName="Dermal_tname" />
+          <ScalarProperty Name="Dermal_lname" ColumnName="Dermal_lname" />
+          <ScalarProperty Name="Dermal_gname" ColumnName="Dermal_gname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ErpDBModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Nationals" ColumnName="Nationals" />
+          <ScalarProperty Name="Domicile" ColumnName="Domicile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Workingtime" ColumnName="Workingtime" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Good_Quality">
+      <EntityTypeMapping TypeName="ErpDBModel.Good_Quality">
+        <MappingFragment StoreEntitySet="Good_Quality">
+          <ScalarProperty Name="QualityId" ColumnName="QualityId" />
+          <ScalarProperty Name="Quality_date" ColumnName="Quality_date" />
+          <ScalarProperty Name="Purchase_orderid" ColumnName="Purchase_orderid" />
+          <ScalarProperty Name="Goodsname" ColumnName="Goodsname" />
+          <ScalarProperty Name="Quality_state" ColumnName="Quality_state" />
+          <ScalarProperty Name="Quality_end" ColumnName="Quality_end" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods">
+      <EntityTypeMapping TypeName="ErpDBModel.Goods">
+        <MappingFragment StoreEntitySet="Goods">
+          <ScalarProperty Name="Goodsid" ColumnName="Goodsid" />
+          <ScalarProperty Name="Goodsname" ColumnName="Goodsname" />
+          <ScalarProperty Name="Goodsjieche" ColumnName="Goodsjieche" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Batch_number" ColumnName="Batch_number" />
+          <ScalarProperty Name="Titanic" ColumnName="Titanic" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Categoryid" ColumnName="Categoryid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods_Delivery">
+      <EntityTypeMapping TypeName="ErpDBModel.Goods_Delivery">
+        <MappingFragment StoreEntitySet="Goods_Delivery">
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="GoodsInvenid" ColumnName="GoodsInvenid" />
+          <ScalarProperty Name="Saleid" ColumnName="Saleid" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Outbound_number" ColumnName="Outbound_number" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Purposes" ColumnName="Purposes" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods_inventory">
+      <EntityTypeMapping TypeName="ErpDBModel.Goods_inventory">
+        <MappingFragment StoreEntitySet="Goods_inventory">
+          <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Suppliername" ColumnName="Suppliername" />
+          <ScalarProperty Name="Inventory_type" ColumnName="Inventory_type" />
+          <ScalarProperty Name="Invenid" ColumnName="Invenid" />
+          <ScalarProperty Name="ProduPutid" ColumnName="ProduPutid" />
+          <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lnven">
+      <EntityTypeMapping TypeName="ErpDBModel.Lnven">
+        <MappingFragment StoreEntitySet="Lnven">
+          <ScalarProperty Name="Invenid" ColumnName="Invenid" />
+          <ScalarProperty Name="Invenname" ColumnName="Invenname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="ErpDBModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Materialid" ColumnName="Materialid" />
+          <ScalarProperty Name="Goodsid" ColumnName="Goodsid" />
+          <ScalarProperty Name="Departmentid" ColumnName="Departmentid" />
+          <ScalarProperty Name="Materialcount" ColumnName="Materialcount" />
+          <ScalarProperty Name="Material_time" ColumnName="Material_time" />
+          <ScalarProperty Name="Material_use" ColumnName="Material_use" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Material_member" ColumnName="Material_member" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderManager">
+      <EntityTypeMapping TypeName="ErpDBModel.OrderManager">
+        <MappingFragment StoreEntitySet="OrderManager">
+          <ScalarProperty Name="Orderid" ColumnName="Orderid" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Ordercount" ColumnName="Ordercount" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Ordertime" ColumnName="Ordertime" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Transport" ColumnName="Transport" />
+          <ScalarProperty Name="Order_price" ColumnName="Order_price" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanOrder">
+      <EntityTypeMapping TypeName="ErpDBModel.PlanOrder">
+        <MappingFragment StoreEntitySet="PlanOrder">
+          <ScalarProperty Name="PlanOrderid" ColumnName="PlanOrderid" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Production" ColumnName="Production" />
+          <ScalarProperty Name="Product_time" ColumnName="Product_time" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Orderid" ColumnName="Orderid" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="ErpDBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Productid" ColumnName="Productid" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Productcount" ColumnName="Productcount" />
+          <ScalarProperty Name="Product_time" ColumnName="Product_time" />
+          <ScalarProperty Name="Product_pihao" ColumnName="Product_pihao" />
+          <ScalarProperty Name="Departmentid" ColumnName="Departmentid" />
+          <ScalarProperty Name="PlanOrderid" ColumnName="PlanOrderid" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Put">
+      <EntityTypeMapping TypeName="ErpDBModel.Product_Put">
+        <MappingFragment StoreEntitySet="Product_Put">
+          <ScalarProperty Name="Putid" ColumnName="Putid" />
+          <ScalarProperty Name="Productid" ColumnName="Productid" />
+          <ScalarProperty Name="Put_date" ColumnName="Put_date" />
+          <ScalarProperty Name="Putnumber" ColumnName="Putnumber" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Quality">
+      <EntityTypeMapping TypeName="ErpDBModel.Product_Quality">
+        <MappingFragment StoreEntitySet="Product_Quality">
+          <ScalarProperty Name="QualityId" ColumnName="QualityId" />
+          <ScalarProperty Name="Quality_date" ColumnName="Quality_date" />
+          <ScalarProperty Name="Product_orderid" ColumnName="Product_orderid" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Batch_number" ColumnName="Batch_number" />
+          <ScalarProperty Name="Quality_number" ColumnName="Quality_number" />
+          <ScalarProperty Name="Quality_end" ColumnName="Quality_end" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ErpDBModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Productsid" ColumnName="Productsid" />
+          <ScalarProperty Name="Productsname" ColumnName="Productsname" />
+          <ScalarProperty Name="Productsjieche" ColumnName="Productsjieche" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+          <ScalarProperty Name="Batch_number" ColumnName="Batch_number" />
+          <ScalarProperty Name="Titanic" ColumnName="Titanic" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase__Brrowing">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase__Brrowing">
+        <MappingFragment StoreEntitySet="Purchase _Brrowing">
+          <ScalarProperty Name="Purchase_brriwid" ColumnName="Purchase_brriwid" />
+          <ScalarProperty Name="Purchase_brriwdate" ColumnName="Purchase_brriwdate" />
+          <ScalarProperty Name="Purchaseid" ColumnName="Purchaseid" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_brrowing">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase_brrowing">
+        <MappingFragment StoreEntitySet="Purchase_brrowing">
+          <ScalarProperty Name="Brrowingid" ColumnName="Brrowingid" />
+          <ScalarProperty Name="Brrowingdate" ColumnName="Brrowingdate" />
+          <ScalarProperty Name="Purchaseid" ColumnName="Purchaseid" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Purchase_returnsnumber" ColumnName="Purchase_returnsnumber" />
+          <ScalarProperty Name="Purchase_returnsprice" ColumnName="Purchase_returnsprice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount_payable" ColumnName="Amount_payable" />
+          <ScalarProperty Name="Real_pay" ColumnName="Real_pay" />
+          <ScalarProperty Name="Unpaid_amount" ColumnName="Unpaid_amount" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_order">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase_order">
+        <MappingFragment StoreEntitySet="Purchase_order">
+          <ScalarProperty Name="Purchase_orderid" ColumnName="Purchase_orderid" />
+          <ScalarProperty Name="Goodsid" ColumnName="Goodsid" />
+          <ScalarProperty Name="Procurement_number" ColumnName="Procurement_number" />
+          <ScalarProperty Name="Settlement_method" ColumnName="Settlement_method" />
+          <ScalarProperty Name="Amount_payable" ColumnName="Amount_payable" />
+          <ScalarProperty Name="Real_pay" ColumnName="Real_pay" />
+          <ScalarProperty Name="Unpaid_amount" ColumnName="Unpaid_amount" />
+          <ScalarProperty Name="Purchase_date" ColumnName="Purchase_date" />
+          <ScalarProperty Name="Purchase_money" ColumnName="Purchase_money" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Put">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase_Put">
+        <MappingFragment StoreEntitySet="Purchase_Put">
+          <ScalarProperty Name="Putid" ColumnName="Putid" />
+          <ScalarProperty Name="Purchaseid" ColumnName="Purchaseid" />
+          <ScalarProperty Name="Put_date" ColumnName="Put_date" />
+          <ScalarProperty Name="Putnumber" ColumnName="Putnumber" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Return">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase_Return">
+        <MappingFragment StoreEntitySet="Purchase_Return">
+          <ScalarProperty Name="Purchase_returnid" ColumnName="Purchase_returnid" />
+          <ScalarProperty Name="Purchase_num" ColumnName="Purchase_num" />
+          <ScalarProperty Name="Purchase_monry" ColumnName="Purchase_monry" />
+          <ScalarProperty Name="Purchaseid" ColumnName="Purchaseid" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+          <ScalarProperty Name="Returndate" ColumnName="Returndate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_returns">
+      <EntityTypeMapping TypeName="ErpDBModel.Purchase_returns">
+        <MappingFragment StoreEntitySet="Purchase_returns">
+          <ScalarProperty Name="Purchase_returnsid" ColumnName="Purchase_returnsid" />
+          <ScalarProperty Name="Purchase_returndate" ColumnName="Purchase_returndate" />
+          <ScalarProperty Name="Purchase_orderid" ColumnName="Purchase_orderid" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Purchase_returnsnumber" ColumnName="Purchase_returnsnumber" />
+          <ScalarProperty Name="Purchase_returnsprice" ColumnName="Purchase_returnsprice" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salary">
+      <EntityTypeMapping TypeName="ErpDBModel.Salary">
+        <MappingFragment StoreEntitySet="Salary">
+          <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+          <ScalarProperty Name="EmployeesId" ColumnName="EmployeesId" />
+          <ScalarProperty Name="Base_salary" ColumnName="Base_salary" />
+          <ScalarProperty Name="Lunch_subsidies" ColumnName="Lunch_subsidies" />
+          <ScalarProperty Name="Taken" ColumnName="Taken" />
+          <ScalarProperty Name="The_fines" ColumnName="The_fines" />
+          <ScalarProperty Name="Housing_subsidies" ColumnName="Housing_subsidies" />
+          <ScalarProperty Name="Additional_benefits" ColumnName="Additional_benefits" />
+          <ScalarProperty Name="Thetax_amount" ColumnName="Thetax_amount" />
+          <ScalarProperty Name="Total_amount" ColumnName="Total_amount" />
+          <ScalarProperty Name="Issuing_date" ColumnName="Issuing_date" />
+          <ScalarProperty Name="Bankname" ColumnName="Bankname" />
+          <ScalarProperty Name="Salary_account" ColumnName="Salary_account" />
+          <ScalarProperty Name="Salary_stardate" ColumnName="Salary_stardate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="ErpDBModel.Sales">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+          <ScalarProperty Name="Sales_date" ColumnName="Sales_date" />
+          <ScalarProperty Name="ProductsId" ColumnName="ProductsId" />
+          <ScalarProperty Name="Customersid" ColumnName="Customersid" />
+          <ScalarProperty Name="Orderid" ColumnName="Orderid" />
+          <ScalarProperty Name="Sales_number" ColumnName="Sales_number" />
+          <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+          <ScalarProperty Name="Settlement_method" ColumnName="Settlement_method" />
+          <ScalarProperty Name="Amount_payable" ColumnName="Amount_payable" />
+          <ScalarProperty Name="Real_pay" ColumnName="Real_pay" />
+          <ScalarProperty Name="Unpaid_amount" ColumnName="Unpaid_amount" />
+          <ScalarProperty Name="Salse_state" ColumnName="Salse_state" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Brrowing">
+      <EntityTypeMapping TypeName="ErpDBModel.Sales_Brrowing">
+        <MappingFragment StoreEntitySet="Sales_Brrowing">
+          <ScalarProperty Name="Sales_brrowid" ColumnName="Sales_brrowid" />
+          <ScalarProperty Name="Sales_brrowiddate" ColumnName="Sales_brrowiddate" />
+          <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_delivery">
+      <EntityTypeMapping TypeName="ErpDBModel.Sales_delivery">
+        <MappingFragment StoreEntitySet="Sales_delivery">
+          <ScalarProperty Name="Deliveryid" ColumnName="Deliveryid" />
+          <ScalarProperty Name="Delivery_num" ColumnName="Delivery_num" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Salesid" ColumnName="Salesid" />
+          <ScalarProperty Name="Handlers" ColumnName="Handlers" />
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Tips" ColumnName="Tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="ErpDBModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="Supplier_name" ColumnName="Supplier_name" />
+          <ScalarProperty Name="Supplier__Introduction" ColumnName="Supplier_ Introduction" />
+          <ScalarProperty Name="Postal_code" ColumnName="Postal_code" />
+          <ScalarProperty Name="Credibility" ColumnName="Credibility" />
+          <ScalarProperty Name="Quality_state" ColumnName="Quality_state" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Deposit_bank" ColumnName="Deposit_bank" />
+          <ScalarProperty Name="Bank_number" ColumnName="Bank_number" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ErpDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transport">
+      <EntityTypeMapping TypeName="ErpDBModel.Transport">
+        <MappingFragment StoreEntitySet="Transport">
+          <ScalarProperty Name="Transportid" ColumnName="Transportid" />
+          <ScalarProperty Name="TransportName" ColumnName="TransportName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ErpDBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
+          <ScalarProperty Name="Usersname" ColumnName="Usersname" />
+          <ScalarProperty Name="UserReadname" ColumnName="UserReadname" />
+          <ScalarProperty Name="Users_password" ColumnName="Users_password" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Start_time" ColumnName="Start_time" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

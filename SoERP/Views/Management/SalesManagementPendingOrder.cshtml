@@ -1,0 +1,506 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				text-decoration: none;
+			}
+			
+			.customer {
+				margin-bottom: 20px;
+				padding-top: 10px;
+				background-color: #FFF;
+				height: 100px;
+			}
+			
+			.customer-manager h3 {
+				width:200px;
+				margin-left: 33px;
+			}
+			
+			.customer ul {
+				margin-left: 20px;
+			}
+			.export {
+				overflow: hidden;
+			}
+			
+			.export ul {
+				padding-left: 30px;
+				float: right;
+			}
+			
+			.export li {
+				border: 1px solid #EBEBEB;
+				width: 80px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				float: left;
+			}
+			
+			.export li a {
+				color: #5A5A5A;
+			}
+			
+			.tabs {
+				position: relative;
+				top:-50px;
+			}
+			
+			.tabs tr td:last-child {
+				width: 165px;
+			}
+			.tabs .tables{
+				position:relative;
+				top:5px;
+			   background-color:#eeeeee30;
+			}
+			.froms {
+				width: 400px;
+				position: relative;
+				top: 10px;
+			}
+			.form {			
+			overflow: hidden;
+			width: 1252px !important;
+			}
+			.form .detail-left{
+			margin-top:30px;
+			width:610px;
+			margin-left: 30px;
+		}
+		.form .detail-right{
+			width:610px;
+			margin-top:30px;
+		}
+			.froms .btn-search {
+				float: left;
+				width: 70px;
+				height: 38px;
+				position: absolute;
+				top:-0px;
+				left: 320px;
+			}
+			.insertbtn{
+				position: relative;
+				top:-30px;
+			}
+			.move {
+				position: relative;
+				left: 5px;
+			}
+			.infos{
+				height:40px;
+				margin-left:80px;
+			}
+			.infos .weight{
+				font-weight: bold;
+			}
+			.infos .little{
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			nav .navs {
+				position: relative;
+				top: -15px;
+			}
+			.detail{
+				height: 100px;
+				text-align: center;
+			}
+			.detail h3{
+				line-height:70px;
+				font-weight: bold;
+			}
+			.look{
+				position: relative;
+				top: -30px;
+				margin-top:40px;	
+				height:390px;
+			}
+			.look .title{
+				width: 1457px;
+				height:110px;
+				position: absolute;
+				top:-125px;
+				left:15px;
+				background-color: #FFF;
+			}
+			.look .title h2{
+				text-align: center;
+				line-height:80px;
+				font-weight:bold;
+			}
+		 nav .bottom{
+		 	position: relative;
+		 	top:35px;
+		 }
+		 .btnGroups{
+		 	margin-top: 15px;
+		 }
+		 .modal-body{
+		 	height: 500px !important;
+		 }
+		.modal-content{
+			height: 660px !important;
+		}
+			.modal-footer .closed{
+				position: relative;
+				top:-11px;
+			}
+		</style>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/style.min.css" rel="stylesheet">
+		<link href="/css/materialdesignicons.min.css" rel="stylesheet">
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script>
+		    var pageSize = 5;//每页显示的记录条数
+		    var curPage = 0;  //当前页
+		    var lastPage; //最后页
+		    var direct = 0; //方向
+		    var len; //总行数
+		    var page;//总页数
+		    var begin;
+		    var end;
+
+		    $(document).ready(function display() {
+		        len = $("#cks tr").length - 1;//求这个表的总行数（ListData是table的id）
+		        if (len < 0) len = 0
+		        page = len % pageSize == 0 ? len / pageSize : Math.floor(len / pageSize) + 1;//根据记录条数，计算页数
+		        curPage = 1; // 设置当前为第一页
+		        displayPage(1);//显示第一页
+
+		        document.getElementById("rowspage").innerHTML = pageSize; // 显示的记录条数
+		        document.getElementById("total").innerHTML = len; // 显示数据量
+		        document.getElementById("btn0").innerHTML = curPage + "/" + page;// 显示当前多少页
+
+		        $("#FirstPage").click(function firstPage() {
+		            curPage = 1;
+		            direct = 0;
+		            displayPage();
+		        });
+		        $("#PreviousPage").click(function frontPage() {
+		            direct = -1;
+		            displayPage();
+		        });
+		        $("#NextPage").click(function nextPage() {
+		            direct = 1;
+		            displayPage();
+		        });
+		        $("#LastPage").click(function lastPage() {
+		            curPage = page;
+		            direct = 0;
+		            displayPage();
+		        });
+		        $("#btn5").click(function changePage() {
+		            curPage = document.getElementById("changePage").value * 1;
+		            if (!/^[1-9]\d*$/.test(curPage)) {
+		                alert("请输入正整数！");
+		                return;
+		            }
+		            if (curPage > page) {
+		                alert("超出数据页面！");
+		                return;
+		            }
+		            direct = 0;
+		            displayPage();
+		        });
+		    });
+
+		    function displayPage() {
+		        if (curPage <= 1 && direct == -1) {
+		            direct = 0;
+		            alert("已经是第一页了！");
+		            return;
+		        } else if (curPage >= page && direct == 1) {
+		            direct = 0;
+		            alert("已经是最后一页了！");
+		            return;
+		        }
+		        lastPage = curPage;
+
+		        // 修复当len=1时，curPage计算得0的bug
+		        if (len > pageSize) {
+		            curPage = ((curPage + direct + len) % len);
+		        } else {
+		            curPage = 1;
+		        }
+		        document.getElementById("btn0").innerHTML = curPage + "/" + page; // 显示当前多少页
+		        begin = (curPage - 1) * pageSize + 1;// 起始记录号
+		        end = begin + 1 * pageSize - 1;    // 末尾记录号
+		        if (end > len) end = len;
+		        $("#cks tr").hide();// 首先,设置这行为隐藏
+		        $("#cks tr").each(function (i) {// 然后，通过条件判断决定本行是否恢复显示
+		            if ((i >= begin && i <= end) || i == 0)//显示begin<=x<=end的记录
+		                $(this).show();
+		        });
+		    }
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="customer">
+				<div class="customer-manager">
+					<h3>待销售订单</h3>
+				</div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="javascript:;">首页</a>
+					</li>
+					<li>
+						<a href="javascript:;">销售管理</a>
+					</li>
+					<li class="active">待销售订单</li>
+				</ul>
+			</div>
+
+			<div class="row">
+				<div  class="col-lg-12">
+					<div class="card">
+						<div class="card-header ">
+							<h4>待销售订单</h4>
+								<!--<div class="toolbar-btn-action">
+									<a class="btn btn-primary m-r-5 insertbtn" href="#!"><i class="mdi mdi-plus"></i>添加</a>
+								</div>-->
+						</div>
+						<div class="card-body">
+							<div class="froms">
+								<form role="form">
+									<div class="form-group">
+										<input type="text" class="form-control" id="name" placeholder="请输入订单编号或客户">
+									</div>
+									<div class="form-group btn-search">
+										<button type="button" class="fa fa-search btn btn-primary">搜索</button>
+									</div>
+								</form>
+							</div>
+						
+						</div>
+						<div class="card-body">
+							<div class="tabs">
+								<table id="cks" class="table table-bordered tables">
+									<thead>
+										<tr>
+											<th><input type="checkbox" name="ck"></th>
+											<th>订单编号</th>
+											<th>下单客户</th>
+											<th>产品名称</th>
+											<th>订单数量</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><input type="checkbox" name="ck"></td>
+											<td>1</td>
+											<td>李健</td>
+											<td>手机</td>
+											<td>560001</td>
+											<td>已处理</td>
+											<td>
+												<a href="" data-toggle="modal" data-target="#myModal">销售</a>
+											</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox" name="ck"></td>
+											<td>1</td>
+											<td>李健</td>
+											<td>手机</td>
+											<td>560001</td>
+											<td>已处理</td>
+											<td>
+												<a href="">销售</a>
+											</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox" name="ck"></td>
+											<td>1</td>
+											<td>李健</td>
+											<td>手机</td>
+											<td>560001</td>
+											<td>已处理</td>
+											<td>
+												<a href="">销售</a>
+											</td>
+							</tr>
+		</tbody>
+		</table>
+	 <div style="display:block;font-size:17px;">
+                <div style="margin-left:10px;margin-top: 3px; float: left; ">
+                    共 &nbsp;<a id="total" style="color:#337ab7;"></a> &nbsp;条数据,&nbsp;
+                    每页显示 &nbsp;<a id="rowspage" style="color:#337ab7 ;"></a> &nbsp;条数据, &nbsp;
+                    共 &nbsp;<a id="btn0" style="color:#337ab7;"></a>&nbsp;&nbsp;页 &nbsp;
+                </div>
+                    <a href="#" id="FirstPage">&nbsp;<img src="/images/上一页.png" /></a>
+                    <a href="#" id="PreviousPage"> &nbsp;<img src="/images/上一页.png" /></a>
+                    <a href="#" id="NextPage"> &nbsp;<img src="/images/下一页.png" /></a>
+                    <a href="#" id="LastPage"> &nbsp;<img src="/images/尾页.png" /></a>
+                    <a> &nbsp;第 </a>
+                    <input id="changePage" type="text" size="1" style="text-align: center;" autocomplete="off"/>
+                    <a>页 </a>
+                    <a href="#" id="btn5"> &nbsp;GO</a>
+               </div>
+
+			</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		<!--
+        	作者：offline
+        	时间：2019-05-16
+        	描述：销售
+        -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content Contet">
+			<div class="modal-header detail">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h3 class="modal-title" id="myModalLabel" style="text-align: center;">
+				售货结款单
+				</h3>
+			</div>
+			<div class="modal-body">
+				<div class="look">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			<div class="form">
+				<form class="form-horizontal" role="form">
+								<div class="row">									
+								<div class="col-lg-5 detail-left">
+									<div class="form-group">
+										<label class="col-lg-2 control-label">结款编号：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductType" type="text" placeholder="请输入结款编号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">销售编号：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入销售编号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">产品名称：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductSize" type="text" placeholder="请输入产品名称">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">客户名称：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductType" type="text" placeholder="请输入客户名称">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">销售数量：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入销售数量">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">产品单价：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductType" type="text" placeholder="请输入产品单价">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">实收金额：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入金额">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-7 detail-right">
+<div class="form-group">
+										<label class="col-lg-2 control-label">结款日期：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入结款日期">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">订单编号：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductSize" type="text" placeholder="请输入订单编号">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">销售金额：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductType" type="text" placeholder="请输入金额">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">应收金额：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入金额">
+										</div>
+										
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">未收金额：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductType" type="text" placeholder="请输入金额">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">经手人：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入经手人">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputPassword" class="col-lg-2 control-label">操作员：</label>
+										<div class="col-lg-10">
+											<input class="form-control" id="ProductU" type="text" placeholder="请输入操作员">
+										</div>
+									</div>
+								</div>
+								</div>
+								<div class="row">
+									  <div class="form-group btnGroups">
+    <div class="col-sm-offset-2 col-sm-2">
+      <button type="submit" class="btn btn-default cancel">重置</button>
+    </div>
+    <div class="col-sm-offset-2 col-sm-2">
+      <button type="submit" class="btn btn-primary">提交</button>
+    </div>
+  </div>
+								</div>
+							</form>
+
+						</div>
+				</div>
+				</div>
+		</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default closed" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div> 
+		</div>
+		    
+	</body>

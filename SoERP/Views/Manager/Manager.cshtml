@@ -1,0 +1,245 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manager</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .card .heads {
+            position: absolute;
+            top: 10px;
+            height: 60px;
+        }
+
+        .froms .form-group {
+            height: 40px;
+            position: absolute;
+            top: 50px;
+        }
+
+            .froms .form-group .form-control {
+                position: absolute;
+                top: 50px;
+            }
+
+            .froms .form-group .btn {
+                position: absolute;
+                left: 290px;
+                top: 50px;
+            }
+
+        .export {
+            position: absolute;
+            top: 135px;
+            right: 0px;
+        }
+
+            .export ul {
+                margin-right: 40px;
+            }
+
+            .export li {
+                border: 1px solid #EBEBEB;
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                float: left;
+            }
+
+                .export li a {
+                    color: #5A5A5A;
+                }
+
+        .btnTwo {
+            position: absolute;
+            top: -60px;
+            right: 0px;
+            margin-right: 30px;
+        }
+
+        .customer {
+            width: 100% !important;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            background-color: #FFF;
+            height: 100px;
+        }
+
+        .customer-manager h3 {
+            width: 100px;
+            margin-left: 33px;
+        }
+
+        .customer ul {
+            margin-left: 20px;
+        }
+
+        .tables {
+            position: relative;
+            top: -65px;
+            background-color: #eeeeee30;
+        }
+
+            .tables tr td:last-child {
+                width: 125px;
+            }
+
+        .move {
+            position: relative;
+            left: 5px;
+        }
+
+        nav .navs {
+            position: relative;
+            top: -83px;
+        }
+
+        .look {
+            height: 430px;
+            margin-top: 10px;
+        }
+
+        .modal-body {
+            background-color: #eeeeee30 !important;
+        }
+
+        .modal-content {
+            height: 600px !important;
+        }
+
+        .look .form-group label {
+            margin-left: -20px;
+        }
+
+        .look .form-group input {
+            width: 250px;
+        }
+
+        .closed {
+            margin-top: -7px;
+        }
+
+        .cancel {
+            color: #F0AD4E !important;
+        }
+    </style>
+    <link href="/css/style.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#updateFile").val("/images/beauty.jpg");
+            $("#file").change(function (e) {
+                var file = e.delegateTarget.files[0];
+                if (file.type == 'image/jpeg' || file.type == 'image/png') {
+                    $("#uploadInfo").text("图片格式正确，请点击提交按钮");
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function (ret) {
+                        picString = reader.result;
+                        //预览图片
+                        $("#selImg").attr({ "src": picString });
+                        $("#updateFile").val(file.name);
+                    }
+                }
+                else {
+                    $("#uploadInfo").text("请上传jpg或png格式的图片！");
+                }
+            })
+            $("#xzbtn").click(function () {
+                if ($("#pwd").val() != $("#repwd").val()) {
+                    alert("原密码错误！");
+                    return false;
+                }
+                if ($("#repwd").val() == $("#upwd").val()) {
+                    alert("新密码与原密码不得一致！");
+                    return false;
+                }
+                if ($("#upwd").val() != $("#usspwd").val()) {
+                    alert("两次密码输入不一致！");
+                    return false;
+                }
+            })
+            $("#canel").click(function () {
+                $("#upwd").val("");
+                $("#usspwd").val("");
+                $("#pwd").val("");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+            <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="/Manager/update">
+                <input type="hidden" id="useid" name="useid" value="@ViewBag.uid"/>
+                <input type="hidden" id="repwd" value="@ViewBag.repwd"/>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">用户名：</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="uname" id="uname" type="text" placeholder="用户名" value="@ViewBag.uname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">原密码：</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="pwd" id="pwd"  type="text" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">密码：</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="upwd" id="upwd"  type="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">确认密码：</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" id="usspwd" name="usspwd" type="password" placeholder="确认密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">照片：</label>
+                            <div class="col-lg-8">
+                                <img  src="@ViewBag.imgs" id="selImg" class="img-responsive" style="border: 1px solid #676A6C; width: 150px !important; height: 200px;"/>
+                                <p id="uploadInfo">选择上传文件：</p>
+                                <input type="hidden" id="updateFile" name="empimg" />
+                                <input type="file" name="file" id="file" /><br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row btnn">
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button type="button" class="btn btn-default cancel"style="left:-25px;" id="canel">清空</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <div class=" col-sm-2">
+                                    <button type="submit" id="xzbtn" class="btn btn-primary set" style="left:-365px;">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

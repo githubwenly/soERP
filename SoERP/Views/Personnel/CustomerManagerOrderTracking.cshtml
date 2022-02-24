@@ -1,0 +1,425 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+				text-decoration: none;
+			}
+			
+			.customer {
+				margin-bottom: 20px;
+				padding-top: 10px;
+				background-color: #FFF;
+				height: 100px;
+			}
+			
+			.customer-manager h3 {
+				width: 100px;
+				margin-left: 33px;
+			}
+			
+			.customer ul {
+				margin-left: 20px;
+			}
+			
+			.forms {
+				overflow: hidden;
+			}
+			
+			.OrderId {
+				margin-left: 240px;
+				margin-top: 5px;
+				width: 90px;
+				line-height: 34px;
+				height: 34px;
+				font-weight: 500 !important;
+				color: #313944;
+			}
+			
+			.OderInfo {
+				width: 1465px;
+				margin: auto;
+				height: 150px;
+			}
+			
+			.orderinfo a {
+				color: #337AB7;
+			}
+			.list-group .right{
+				float: right;
+			}
+			.OrderDetail {
+				height:1080px;
+			}
+			
+			.btnSearchs {
+				position: absolute;
+				right: 640px;
+			}
+			
+			.contacts {
+				border: 1px solid #e7eaec;
+				width: 582px;
+				background-color: #F5F5F5;
+				margin-top:10px;
+				position: relative;
+				left: 75px;
+				padding: 10px 20px;
+				margin-bottom:20px;
+			}
+			
+			.contacts label {
+				font-size: 12px;
+				color: #676A6C;
+			}
+			 .list-group{
+			 	overflow: hidden;
+				margin-top:15px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #e7eaec ;
+			}
+			 .list-group .titleleft{
+				float:left;
+			}
+			 .list-group .fill{
+				float:left;
+				margin-left:15px;
+				color: #676A6C;
+				font-size: 12px !important;
+			}
+		</style>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/style.min.css" rel="stylesheet">
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
+                //根据产品订单号查询订单信息
+                $("#btnorder").click(function () {
+                    //获取订单编号
+                    var orderid = $("#orderids").val();
+                    //判断订单信息
+                    if (orderid != 0) {
+                        $.ajax({
+                            url: "/Personnel/SelectByOrderid",
+                            data: { ords: orderid },
+                            dataType: "json",
+                            success: function (data) {
+                                $("#orderid").html(data.orderid)
+                                $("#cutomername").html(data.cutomername)
+                                $("#people").html(data.people)
+                                $("#jiaohuodate").html(data.jiaohuodate)
+                                $("#ordernumber").html(data.ordernumber)
+                                $("#orderprice").html(data.orderprice)
+                                $("#orderdate").html(data.orderdate)
+                                $("#productname").html(data.productname)
+                                $("#suppliername").html(data.suppliername)
+                                $("#address").html(data.address)
+                                $("#guige").html(data.guige)
+                                $("#price").html(data.price)
+                                $("#productype").html(data.productype)
+                                $("#unit").html(data.unit)
+                                $("#salebroid").html(data.salebroid)
+                                $("#customername").html(data.customername)
+                                $("#customer").html(data.customer)
+                                $("#saleprice").html(data.saleprice)
+                                $("#yudingprice").html(data.yudingprice)
+                                $("#jiekuanprice").html(data.jiekuanprice)
+                                $("#jiekuandate").html(data.jiekuandate)
+                                $("#saleid").html(data.saleid)
+                                $("#customername1").html(data.customername1)
+                                $("#customerpeople").html(data.customerpeople)
+                                $("#salenumber").html(data.salenumber)
+                                $("#salemoney").html(data.salemoney)
+                                $("#saledate").html(data.saledate)
+                                $("#salestate").html(data.salestate)
+                                
+
+                            }
+                        })
+                    } else {
+                        alert("请选择订单编号")
+                    }
+
+                })               
+            })
+        </script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<!--头部-->
+			<div class="customer">
+				<div class="customer-manager">
+					<h3>订单跟踪</h3>
+				</div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="javascript:;">首页</a>
+					</li>
+					<li>
+						<a href="javascript:;">客户管理</a>
+					</li>
+					<li class="active">订单跟踪</li>
+				</ul>
+			</div>
+			<!--订单信息查询-->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card OderInfo">
+						<div class="card-header ">
+							<h4>订单信息查询</h4>
+						</div>
+						<div class="card-body">
+							<form role="form" class="forms">
+								<div class="form-group">
+									<div class="col-lg-3">
+										<label class=" OrderId control-label">产品订单ID：</label>
+									</div>
+									<div class="col-lg-3">
+										<select class="form-control" id="orderids">
+											<option value="0">---请选择---</option>
+                                            @foreach (var item in ViewBag.order)
+                                            {
+                                                <option value="@item.Orderid">@item.Orderid</option>
+                                            }
+										</select>
+									</div>
+									<button type="button" id="btnorder" class="fa fa-search btn btn-primary btnSearchs">查询</button>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--订单详细信息-->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card OrderDetail">
+						<div class="card-header ">
+							<h4>订单详细信息</h4>
+						</div>
+
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+										订单信息
+        </h3>
+										</div>
+										<div class="panel-body">
+											<div class="orderinfo">
+												<div class="list-group">
+													<a href="javascript:;">订单编号：</a>
+													<strong id="orderid"></strong>
+													<small class="right">
+													</small>
+												
+													<div class="contacts">
+														<label>
+																客户名称：<small id="cutomername"></small>
+															</label><br />
+														<label>
+																联系人：<small id="people"></small>
+															</label>
+													</div></div>
+														<div class="list-group">
+															<strong class="titleleft" >下单日期：</strong>
+															<div class="fill">
+																<small id="jiaohuodate"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">订单数量：</strong>
+															<div class="fill">
+																<small id="ordernumber"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">订单金额：</strong>
+															<div class="fill">
+																<small id="orderprice"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">订单日期：</strong>
+															<div class="fill">
+																<small id="orderdate"></small>
+															</div>
+														</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-lg-6">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+											产品信息
+        </h3>
+										</div>
+										<div class="panel-body">
+												<div class="orderinfo">
+												<div class="list-group">
+													<a href="javascript:;">产品名称：</a>
+													<strong id="productname"></strong>												
+													<div class="contacts">
+														<label>
+																产商名称：<small id="suppliername"></small>
+															</label><br />
+														<label>
+																产品产地：<small id="address"></small>
+															</label>
+													</div></div>
+														<div class="list-group">
+															<strong class="titleleft">产品规格：</strong>
+															<div class="fill">
+																<small id="guige"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">产品单价：</strong>
+															<div class="fill">
+																<small id="price"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">产品类别：</strong>
+															<div class="fill">
+																<small id="productype"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">产品单位：</strong>
+															<div class="fill">
+																<small id="unit"></small>
+															</div>
+														</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+										产品销售结款信息
+        </h3>
+										</div>
+										<div class="panel-body">
+												<div class="orderinfo">
+												<div class="list-group">
+													<a href="javascript:;">结款编号：</a>
+													<strong id="salebroid"></strong>												
+													<div class="contacts">
+														<label>
+																客户名称：<small id="customername"></small>
+															</label><br />
+														<label>
+																联系人：<small id="customer"></small>
+															</label>
+													</div></div>
+														<div class="list-group">
+															<strong class="titleleft">销售金额：</strong>
+															<div class="fill">
+																<small id="saleprice"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">预定金额：</strong>
+															<div class="fill">
+																<small id="yudingprice"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">结款金额：</strong>
+															<div class="fill">
+																<small id="jiekuanprice"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">结款日期：</strong>
+															<div class="fill">
+																<small id="jiekuandate"></small>
+															</div>
+														</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-lg-6">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+											产品销售信息
+        </h3>
+										</div>
+										<div class="panel-body">
+												<div class="orderinfo">
+												<div class="list-group">
+													<a href="javascript:;">销售编号：</a>
+													<strong id="saleid"></strong>												
+													<div class="contacts">
+														<label>
+																客户名称：<small id="customername1"></small>
+															</label><br />
+														<label>
+																联系人：<small id="customerpeople"></small>
+															</label>
+													</div></div>
+														<div class="list-group">
+															<strong class="titleleft">销售数量：</strong>
+															<div class="fill">
+																<small id="salenumber"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">销售金额：</strong>
+															<div class="fill">
+																<small id="salemoney"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">销售日期：</strong>
+															<div class="fill">
+																<small id="saledate"></small>
+															</div>
+														</div>
+														<div class="list-group">
+															<strong class="titleleft">销售状态：</strong>
+															<div class="fill">
+																<small id="salestate"></small>
+															</div>
+														</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>
