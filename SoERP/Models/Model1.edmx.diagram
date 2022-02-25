@@ -4,38 +4,37 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="070ea8fd647a4073a9f83912bfe41efd" Name="关系图1">
+      <Diagram DiagramId="070ea8fd647a4073a9f83912bfe41efd" Name="关系图1" ZoomLevel="64">
         <EntityTypeShape EntityType="ErpDBModel.Announcements" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Customer" Width="1.5" PointX="6" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Department" Width="1.5" PointX="0.75" PointY="26.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Dermal" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Employees" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Good_Quality" Width="1.5" PointX="5.25" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Goods" Width="1.5" PointX="3" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Goods_Delivery" Width="1.5" PointX="16" PointY="38.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Goods_inventory" Width="1.5" PointX="12.75" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Lnven" Width="1.5" PointX="0.75" PointY="42.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Material" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.OrderManager" Width="1.5" PointX="8.25" PointY="37.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.PlanOrder" Width="1.5" PointX="13.5" PointY="39.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Product" Width="1.5" PointX="8.25" PointY="32" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Product_Put" Width="1.5" PointX="10.5" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Product_Quality" Width="1.5" PointX="13.5" PointY="35.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Products" Width="1.5" PointX="6" PointY="44.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase__Brrowing" Width="1.5" PointX="5.25" PointY="41.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase_brrowing" Width="1.5" PointX="11.25" PointY="36.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase_order" Width="1.5" PointX="11.25" PointY="31.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase_Put" Width="1.5" PointX="16.5" PointY="34.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase_Return" Width="1.5" PointX="12.75" PointY="43.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Purchase_returns" Width="1.5" PointX="15.5" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Salary" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Sales" Width="1.5" PointX="10.5" PointY="42.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Sales_Brrowing" Width="1.5" PointX="15.75" PointY="43.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Sales_delivery" Width="1.5" PointX="18.75" PointY="40.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Supplier" Width="1.5" PointX="0.75" PointY="45.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Transport" Width="1.5" PointX="6" PointY="49.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ErpDBModel.Users" Width="1.5" PointX="3" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Customer" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Department" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Dermal" Width="1.5" PointX="8.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Employees" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Good_Quality" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Goods" Width="1.5" PointX="3" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Goods_Delivery" Width="1.5" PointX="16" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Goods_inventory" Width="1.5" PointX="12.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Lnven" Width="1.5" PointX="0.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Material" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.OrderManager" Width="1.5" PointX="8.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.PlanOrder" Width="1.5" PointX="13.5" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Product" Width="1.5" PointX="8.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Product_Put" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Product_Quality" Width="1.5" PointX="13.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Products" Width="1.5" PointX="6" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Purchase_brrowing" Width="1.5" PointX="11.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Purchase_order" Width="1.5" PointX="11.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Purchase_Put" Width="1.5" PointX="16.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Purchase_Return" Width="1.5" PointX="12.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Purchase_returns" Width="1.5" PointX="15.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Salary" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Sales" Width="1.5" PointX="10.5" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Sales_Brrowing" Width="1.5" PointX="15.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Sales_delivery" Width="1.5" PointX="18.75" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Supplier" Width="1.5" PointX="0.75" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.sysdiagrams" Width="1.5" PointX="5.875" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Transport" Width="1.5" PointX="6" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpDBModel.Users" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
         <AssociationConnector Association="ErpDBModel.FK_OrderManager_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Sales_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Employees_Department" ManuallyRouted="false" />
@@ -68,8 +67,6 @@
         <AssociationConnector Association="ErpDBModel.FK_Product_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Product_Quality_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Sales_Products" ManuallyRouted="false" />
-        <AssociationConnector Association="ErpDBModel.FK_Purchase__Brrowing_Purchase_order" ManuallyRouted="false" />
-        <AssociationConnector Association="ErpDBModel.FK_Purchase__Brrowing_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Purchase_brrowing_Purchase_order" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Purchase_brrowing_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Purchase_order_Users" ManuallyRouted="false" />
@@ -84,6 +81,10 @@
         <AssociationConnector Association="ErpDBModel.FK_Sales_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Sales_Brrowing_Users" ManuallyRouted="false" />
         <AssociationConnector Association="ErpDBModel.FK_Sales_delivery_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ErpDBModel.Leave" Width="1.5" PointX="3" PointY="12.125" />
+        <AssociationConnector Association="ErpDBModel.FK_Leave_Department" />
+        <EntityTypeShape EntityType="ErpDBModel.Shif" Width="1.5" PointX="3" PointY="2.875" />
+        <AssociationConnector Association="ErpDBModel.FK_Shif_Department" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -17,7 +17,6 @@ namespace SoERP.Models
         public Purchase_order()
         {
             this.Good_Quality = new HashSet<Good_Quality>();
-            this.Purchase__Brrowing = new HashSet<Purchase__Brrowing>();
             this.Purchase_brrowing = new HashSet<Purchase_brrowing>();
             this.Purchase_Put = new HashSet<Purchase_Put>();
             this.Purchase_returns = new HashSet<Purchase_returns>();
@@ -39,7 +38,6 @@ namespace SoERP.Models
     
         public virtual ICollection<Good_Quality> Good_Quality { get; set; }
         public virtual Goods Goods { get; set; }
-        public virtual ICollection<Purchase__Brrowing> Purchase__Brrowing { get; set; }
         public virtual ICollection<Purchase_brrowing> Purchase_brrowing { get; set; }
         public virtual Users Users { get; set; }
         public virtual ICollection<Purchase_Put> Purchase_Put { get; set; }

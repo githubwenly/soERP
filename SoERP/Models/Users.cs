@@ -23,7 +23,6 @@ namespace SoERP.Models
             this.PlanOrder = new HashSet<PlanOrder>();
             this.Product = new HashSet<Product>();
             this.Product_Quality = new HashSet<Product_Quality>();
-            this.Purchase__Brrowing = new HashSet<Purchase__Brrowing>();
             this.Purchase_brrowing = new HashSet<Purchase_brrowing>();
             this.Purchase_order = new HashSet<Purchase_order>();
             this.Purchase_Put = new HashSet<Purchase_Put>();
@@ -42,6 +41,7 @@ namespace SoERP.Models
         public Nullable<System.DateTime> Start_time { get; set; }
         public Nullable<int> Department { get; set; }
         public string Image { get; set; }
+        public int Post { get; set; }
     
         public virtual Department Department1 { get; set; }
         public virtual ICollection<Good_Quality> Good_Quality { get; set; }
@@ -51,7 +51,6 @@ namespace SoERP.Models
         public virtual ICollection<PlanOrder> PlanOrder { get; set; }
         public virtual ICollection<Product> Product { get; set; }
         public virtual ICollection<Product_Quality> Product_Quality { get; set; }
-        public virtual ICollection<Purchase__Brrowing> Purchase__Brrowing { get; set; }
         public virtual ICollection<Purchase_brrowing> Purchase_brrowing { get; set; }
         public virtual ICollection<Purchase_order> Purchase_order { get; set; }
         public virtual ICollection<Purchase_Put> Purchase_Put { get; set; }

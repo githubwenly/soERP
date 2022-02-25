@@ -257,16 +257,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Purchase__Brrowing">
-      <EntityTypeMapping TypeName="ErpDBModel.Purchase__Brrowing">
-        <MappingFragment StoreEntitySet="Purchase _Brrowing">
-          <ScalarProperty Name="Purchase_brriwid" ColumnName="Purchase_brriwid" />
-          <ScalarProperty Name="Purchase_brriwdate" ColumnName="Purchase_brriwdate" />
-          <ScalarProperty Name="Purchaseid" ColumnName="Purchaseid" />
-          <ScalarProperty Name="Usersid" ColumnName="Usersid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Purchase_brrowing">
       <EntityTypeMapping TypeName="ErpDBModel.Purchase_brrowing">
         <MappingFragment StoreEntitySet="Purchase_brrowing">
@@ -452,6 +442,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="ErpDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Post" ColumnName="Post" />
           <ScalarProperty Name="Usersid" ColumnName="Usersid" />
           <ScalarProperty Name="Usersname" ColumnName="Usersname" />
           <ScalarProperty Name="UserReadname" ColumnName="UserReadname" />
@@ -460,6 +451,43 @@
           <ScalarProperty Name="Start_time" ColumnName="Start_time" />
           <ScalarProperty Name="Department" ColumnName="Department" />
           <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leave">
+      <EntityTypeMapping TypeName="ErpDBModel.Leave">
+        <MappingFragment StoreEntitySet="Leave">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="Leave_Type" ColumnName="Leave_Type" />
+          <ScalarProperty Name="Total_time" ColumnName="Total_time" />
+          <ScalarProperty Name="End_time" ColumnName="End_time" />
+          <ScalarProperty Name="Start_time" ColumnName="Start_time" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Applytime" ColumnName="Applytime" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Leave_id" ColumnName="Leave_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shif">
+      <EntityTypeMapping TypeName="ErpDBModel.Shif">
+        <MappingFragment StoreEntitySet="Shif">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Progress" ColumnName="Progress" />
+          <ScalarProperty Name="Leave_Type" ColumnName="Leave_Type" />
+          <ScalarProperty Name="NTotal" ColumnName="NTotal" />
+          <ScalarProperty Name="NEnd_time" ColumnName="NEnd_time" />
+          <ScalarProperty Name="NStart_time" ColumnName="NStart_time" />
+          <ScalarProperty Name="YTotal" ColumnName="YTotal" />
+          <ScalarProperty Name="YEnd_time" ColumnName="YEnd_time" />
+          <ScalarProperty Name="YStart_time" ColumnName="YStart_time" />
+          <ScalarProperty Name="Applay_time" ColumnName="Applay_time" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Shif_id" ColumnName="Shif_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

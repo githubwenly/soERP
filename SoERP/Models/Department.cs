@@ -20,6 +20,8 @@ namespace SoERP.Models
             this.Material = new HashSet<Material>();
             this.Product = new HashSet<Product>();
             this.Users = new HashSet<Users>();
+            this.Leave = new HashSet<Leave>();
+            this.Shif = new HashSet<Shif>();
         }
     
         public int DepartmentId { get; set; }
@@ -30,5 +32,7 @@ namespace SoERP.Models
         public virtual ICollection<Material> Material { get; set; }
         public virtual ICollection<Product> Product { get; set; }
         public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<Leave> Leave { get; set; }
+        public virtual ICollection<Shif> Shif { get; set; }
     }
 }

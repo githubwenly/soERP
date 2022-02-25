@@ -1,235 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ErpDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="ErpDBModelStoreContainer">
-    <EntitySet Name="Announcements" EntityType="ErpDBModel.Store.Announcements" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Customer" EntityType="ErpDBModel.Store.Customer" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Department" EntityType="ErpDBModel.Store.Department" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Dermal" EntityType="ErpDBModel.Store.Dermal" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Employees" EntityType="ErpDBModel.Store.Employees" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Good_Quality" EntityType="ErpDBModel.Store.Good_Quality" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Goods" EntityType="ErpDBModel.Store.Goods" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Goods_Delivery" EntityType="ErpDBModel.Store.Goods_Delivery" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Goods_inventory" EntityType="ErpDBModel.Store.Goods_inventory" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Lnven" EntityType="ErpDBModel.Store.Lnven" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Material" EntityType="ErpDBModel.Store.Material" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="OrderManager" EntityType="ErpDBModel.Store.OrderManager" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PlanOrder" EntityType="ErpDBModel.Store.PlanOrder" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Product" EntityType="ErpDBModel.Store.Product" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Product_Put" EntityType="ErpDBModel.Store.Product_Put" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Product_Quality" EntityType="ErpDBModel.Store.Product_Quality" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Products" EntityType="ErpDBModel.Store.Products" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase _Brrowing" EntityType="ErpDBModel.Store.Purchase _Brrowing" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase_brrowing" EntityType="ErpDBModel.Store.Purchase_brrowing" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase_order" EntityType="ErpDBModel.Store.Purchase_order" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase_Put" EntityType="ErpDBModel.Store.Purchase_Put" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase_Return" EntityType="ErpDBModel.Store.Purchase_Return" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Purchase_returns" EntityType="ErpDBModel.Store.Purchase_returns" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Salary" EntityType="ErpDBModel.Store.Salary" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sales" EntityType="ErpDBModel.Store.Sales" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sales_Brrowing" EntityType="ErpDBModel.Store.Sales_Brrowing" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sales_delivery" EntityType="ErpDBModel.Store.Sales_delivery" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Supplier" EntityType="ErpDBModel.Store.Supplier" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="sysdiagrams" EntityType="ErpDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Transport" EntityType="ErpDBModel.Store.Transport" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Users" EntityType="ErpDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Employees_Department" Association="ErpDBModel.Store.FK_Employees_Department">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="Employees" EntitySet="Employees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Good_Quality_Purchase_order" Association="ErpDBModel.Store.FK_Good_Quality_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Good_Quality" EntitySet="Good_Quality" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Good_Quality_Users" Association="ErpDBModel.Store.FK_Good_Quality_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Good_Quality" EntitySet="Good_Quality" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_Delivery_Goods_inventory" Association="ErpDBModel.Store.FK_Goods_Delivery_Goods_inventory">
-      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
-      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_Delivery_Sales" Association="ErpDBModel.Store.FK_Goods_Delivery_Sales">
-      <End Role="Sales" EntitySet="Sales" />
-      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_Delivery_Users" Association="ErpDBModel.Store.FK_Goods_Delivery_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_inventory_Goods_inventory" Association="ErpDBModel.Store.FK_Goods_inventory_Goods_inventory">
-      <End Role="Product_Put" EntitySet="Product_Put" />
-      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_inventory_Purchase_Put" Association="ErpDBModel.Store.FK_Goods_inventory_Purchase_Put">
-      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
-      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_Lnven" Association="ErpDBModel.Store.FK_Goods_Lnven">
-      <End Role="Lnven" EntitySet="Lnven" />
-      <End Role="Goods" EntitySet="Goods" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Goods_Supplier" Association="ErpDBModel.Store.FK_Goods_Supplier">
-      <End Role="Supplier" EntitySet="Supplier" />
-      <End Role="Goods" EntitySet="Goods" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Material_Department" Association="ErpDBModel.Store.FK_Material_Department">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="Material" EntitySet="Material" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Material_Goods" Association="ErpDBModel.Store.FK_Material_Goods">
-      <End Role="Goods" EntitySet="Goods" />
-      <End Role="Material" EntitySet="Material" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Material_Users" Association="ErpDBModel.Store.FK_Material_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Material" EntitySet="Material" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderManager_Customer" Association="ErpDBModel.Store.FK_OrderManager_Customer">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="OrderManager" EntitySet="OrderManager" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderManager_Products" Association="ErpDBModel.Store.FK_OrderManager_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="OrderManager" EntitySet="OrderManager" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderManager_Transport" Association="ErpDBModel.Store.FK_OrderManager_Transport">
-      <End Role="Transport" EntitySet="Transport" />
-      <End Role="OrderManager" EntitySet="OrderManager" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderManager_Users" Association="ErpDBModel.Store.FK_OrderManager_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="OrderManager" EntitySet="OrderManager" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlanOrder_OrderManager" Association="ErpDBModel.Store.FK_PlanOrder_OrderManager">
-      <End Role="OrderManager" EntitySet="OrderManager" />
-      <End Role="PlanOrder" EntitySet="PlanOrder" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PlanOrder_Users" Association="ErpDBModel.Store.FK_PlanOrder_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="PlanOrder" EntitySet="PlanOrder" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Department" Association="ErpDBModel.Store.FK_Product_Department">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_PlanOrder" Association="ErpDBModel.Store.FK_Product_PlanOrder">
-      <End Role="PlanOrder" EntitySet="PlanOrder" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Put_Product" Association="ErpDBModel.Store.FK_Product_Put_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product_Put" EntitySet="Product_Put" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Quality_Purchase_order" Association="ErpDBModel.Store.FK_Product_Quality_Purchase_order">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Product_Quality" EntitySet="Product_Quality" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Quality_Users" Association="ErpDBModel.Store.FK_Product_Quality_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Product_Quality" EntitySet="Product_Quality" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Users" Association="ErpDBModel.Store.FK_Product_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Products_Lnven" Association="ErpDBModel.Store.FK_Products_Lnven">
-      <End Role="Lnven" EntitySet="Lnven" />
-      <End Role="Products" EntitySet="Products" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase _Brrowing_Purchase_order" Association="ErpDBModel.Store.FK_Purchase _Brrowing_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Purchase _Brrowing" EntitySet="Purchase _Brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase _Brrowing_Users" Association="ErpDBModel.Store.FK_Purchase _Brrowing_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase _Brrowing" EntitySet="Purchase _Brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_brrowing_Purchase_order" Association="ErpDBModel.Store.FK_Purchase_brrowing_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_brrowing_Users" Association="ErpDBModel.Store.FK_Purchase_brrowing_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_order_Goods" Association="ErpDBModel.Store.FK_Purchase_order_Goods">
-      <End Role="Goods" EntitySet="Goods" />
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_order_Users" Association="ErpDBModel.Store.FK_Purchase_order_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_Put_Purchase_order" Association="ErpDBModel.Store.FK_Purchase_Put_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_Put_Users" Association="ErpDBModel.Store.FK_Purchase_Put_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_Return_Purchase_order" Association="ErpDBModel.Store.FK_Purchase_Return_Purchase_order">
-      <End Role="Sales" EntitySet="Sales" />
-      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_Return_Users" Association="ErpDBModel.Store.FK_Purchase_Return_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_returns_Purchase_order" Association="ErpDBModel.Store.FK_Purchase_returns_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase_returns_Users" Association="ErpDBModel.Store.FK_Purchase_returns_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Salary_Employees" Association="ErpDBModel.Store.FK_Salary_Employees">
-      <End Role="Employees" EntitySet="Employees" />
-      <End Role="Salary" EntitySet="Salary" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_Brrowing_Sales" Association="ErpDBModel.Store.FK_Sales_Brrowing_Sales">
-      <End Role="Sales" EntitySet="Sales" />
-      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_Brrowing_Users" Association="ErpDBModel.Store.FK_Sales_Brrowing_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_Customer" Association="ErpDBModel.Store.FK_Sales_Customer">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Sales" EntitySet="Sales" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_delivery_Sales" Association="ErpDBModel.Store.FK_Sales_delivery_Sales">
-      <End Role="Sales" EntitySet="Sales" />
-      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_delivery_Users" Association="ErpDBModel.Store.FK_Sales_delivery_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_OrderManager" Association="ErpDBModel.Store.FK_Sales_OrderManager">
-      <End Role="OrderManager" EntitySet="OrderManager" />
-      <End Role="Sales" EntitySet="Sales" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_Products" Association="ErpDBModel.Store.FK_Sales_Products">
-      <End Role="Products" EntitySet="Products" />
-      <End Role="Sales" EntitySet="Sales" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Sales_Users" Association="ErpDBModel.Store.FK_Sales_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Sales" EntitySet="Sales" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Users" Association="ErpDBModel.Store.FK_Users_Users">
-      <End Role="Department" EntitySet="Department" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="ErpDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Announcements">
     <Key>
       <PropertyRef Name="Annountid" />
     </Key>
-    <Property Name="Annountid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Annountid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Annountime" Type="datetime" />
     <Property Name="Announttitle" Type="varchar" MaxLength="20" />
     <Property Name="Annountpeople" Type="varchar" MaxLength="20" />
@@ -239,7 +14,7 @@
     <Key>
       <PropertyRef Name="CustomerId" />
     </Key>
-    <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Customername" Type="varchar" MaxLength="50" />
     <Property Name="Referred" Type="varchar" MaxLength="20" />
     <Property Name="Zip_code" Type="varchar" MaxLength="20" />
@@ -256,7 +31,7 @@
     <Key>
       <PropertyRef Name="DepartmentId" />
     </Key>
-    <Property Name="DepartmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Departmentname" Type="varchar" MaxLength="40" />
     <Property Name="DepartmentReadname" Type="varchar" MaxLength="100" />
   </EntityType>
@@ -264,7 +39,7 @@
     <Key>
       <PropertyRef Name="Dermalid" />
     </Key>
-    <Property Name="Dermalid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Dermalid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Usersid" Type="int" />
     <Property Name="Dermal_tname" Type="varchar" MaxLength="40" />
     <Property Name="Dermal_lname" Type="varchar" MaxLength="40" />
@@ -274,7 +49,7 @@
     <Key>
       <PropertyRef Name="EmployeesId" />
     </Key>
-    <Property Name="EmployeesId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="10" />
     <Property Name="Gender" Type="varchar" MaxLength="2" />
     <Property Name="Age" Type="int" />
@@ -293,7 +68,7 @@
     <Key>
       <PropertyRef Name="QualityId" />
     </Key>
-    <Property Name="QualityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="QualityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quality_date" Type="datetime" />
     <Property Name="Purchase_orderid" Type="int" />
     <Property Name="Goodsname" Type="varchar" MaxLength="40" />
@@ -307,7 +82,7 @@
     <Key>
       <PropertyRef Name="Goodsid" />
     </Key>
-    <Property Name="Goodsid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Goodsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Goodsname" Type="varchar" MaxLength="40" />
     <Property Name="Goodsjieche" Type="varchar" MaxLength="20" />
     <Property Name="Unit" Type="varchar" MaxLength="10" />
@@ -325,7 +100,7 @@
     <Key>
       <PropertyRef Name="DeliveryId" />
     </Key>
-    <Property Name="DeliveryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GoodsInvenid" Type="int" />
     <Property Name="Saleid" Type="int" />
     <Property Name="productname" Type="varchar" MaxLength="40" />
@@ -341,7 +116,7 @@
     <Key>
       <PropertyRef Name="InventoryId" />
     </Key>
-    <Property Name="InventoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InventoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="40" />
     <Property Name="Price" Type="money" />
     <Property Name="Unit" Type="varchar" MaxLength="20" />
@@ -351,18 +126,34 @@
     <Property Name="ProduPutid" Type="int" />
     <Property Name="Inventory" Type="int" />
   </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="Leave_id" />
+    </Key>
+    <Property Name="Leave_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Applytime" Type="date" Nullable="false" />
+    <Property Name="Cause" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Start_time" Type="date" Nullable="false" />
+    <Property Name="End_time" Type="date" Nullable="false" />
+    <Property Name="Total_time" Type="int" Nullable="false" />
+    <Property Name="Leave_Type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Progress" Type="int" Nullable="false" />
+    <Property Name="Userid" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Lnven">
     <Key>
       <PropertyRef Name="Invenid" />
     </Key>
-    <Property Name="Invenid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Invenid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Invenname" Type="varchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Material">
     <Key>
       <PropertyRef Name="Materialid" />
     </Key>
-    <Property Name="Materialid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Materialid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Goodsid" Type="int" />
     <Property Name="Departmentid" Type="int" />
     <Property Name="Materialcount" Type="int" />
@@ -377,7 +168,7 @@
     <Key>
       <PropertyRef Name="Orderid" />
     </Key>
-    <Property Name="Orderid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerID" Type="int" />
     <Property Name="ProductID" Type="int" />
     <Property Name="Ordercount" Type="int" />
@@ -394,7 +185,7 @@
     <Key>
       <PropertyRef Name="PlanOrderid" />
     </Key>
-    <Property Name="PlanOrderid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PlanOrderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Product_name" Type="varchar" MaxLength="40" />
     <Property Name="Production" Type="int" />
     <Property Name="Product_time" Type="datetime" />
@@ -407,7 +198,7 @@
     <Key>
       <PropertyRef Name="Productid" />
     </Key>
-    <Property Name="Productid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Product_name" Type="varchar" MaxLength="40" />
     <Property Name="Productcount" Type="int" />
     <Property Name="Product_time" Type="datetime" />
@@ -422,7 +213,7 @@
     <Key>
       <PropertyRef Name="Putid" />
     </Key>
-    <Property Name="Putid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Putid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Productid" Type="int" />
     <Property Name="Put_date" Type="datetime" />
     <Property Name="Putnumber" Type="int" />
@@ -435,7 +226,7 @@
     <Key>
       <PropertyRef Name="QualityId" />
     </Key>
-    <Property Name="QualityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="QualityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quality_date" Type="datetime" />
     <Property Name="Product_orderid" Type="int" />
     <Property Name="Product_name" Type="varchar" MaxLength="50" />
@@ -450,7 +241,7 @@
     <Key>
       <PropertyRef Name="Productsid" />
     </Key>
-    <Property Name="Productsid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Productsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Productsname" Type="varchar" MaxLength="40" />
     <Property Name="Productsjieche" Type="varchar" MaxLength="20" />
     <Property Name="Unit" Type="varchar" MaxLength="10" />
@@ -464,20 +255,11 @@
     <Property Name="Category" Type="int" />
     <Property Name="Tips" Type="varchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="Purchase _Brrowing">
-    <Key>
-      <PropertyRef Name="Purchase_brriwid" />
-    </Key>
-    <Property Name="Purchase_brriwid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Purchase_brriwdate" Type="datetime" />
-    <Property Name="Purchaseid" Type="int" />
-    <Property Name="Usersid" Type="int" />
-  </EntityType>
   <EntityType Name="Purchase_brrowing">
     <Key>
       <PropertyRef Name="Brrowingid" />
     </Key>
-    <Property Name="Brrowingid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Brrowingid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Brrowingdate" Type="datetime" />
     <Property Name="Purchaseid" Type="int" />
     <Property Name="Product_name" Type="nvarchar" MaxLength="50" />
@@ -495,7 +277,7 @@
     <Key>
       <PropertyRef Name="Purchase_orderid" />
     </Key>
-    <Property Name="Purchase_orderid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Goodsid" Type="int" />
     <Property Name="Procurement_number" Type="int" />
     <Property Name="Settlement_method" Type="varchar" MaxLength="10" />
@@ -513,7 +295,7 @@
     <Key>
       <PropertyRef Name="Putid" />
     </Key>
-    <Property Name="Putid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Putid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Purchaseid" Type="int" />
     <Property Name="Put_date" Type="datetime" />
     <Property Name="Putnumber" Type="int" />
@@ -525,7 +307,7 @@
     <Key>
       <PropertyRef Name="Purchase_returnid" />
     </Key>
-    <Property Name="Purchase_returnid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_returnid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Purchase_num" Type="int" />
     <Property Name="Purchase_monry" Type="money" />
     <Property Name="Purchaseid" Type="int" />
@@ -538,7 +320,7 @@
     <Key>
       <PropertyRef Name="Purchase_returnsid" />
     </Key>
-    <Property Name="Purchase_returnsid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Purchase_returnsid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Purchase_returndate" Type="date" />
     <Property Name="Purchase_orderid" Type="int" />
     <Property Name="Product_name" Type="varchar" MaxLength="50" />
@@ -552,7 +334,7 @@
     <Key>
       <PropertyRef Name="SalaryId" />
     </Key>
-    <Property Name="SalaryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SalaryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeesId" Type="int" />
     <Property Name="Base_salary" Type="int" />
     <Property Name="Lunch_subsidies" Type="int" />
@@ -571,7 +353,7 @@
     <Key>
       <PropertyRef Name="SalesId" />
     </Key>
-    <Property Name="SalesId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SalesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Sales_date" Type="date" />
     <Property Name="ProductsId" Type="int" />
     <Property Name="Customersid" Type="int" />
@@ -591,7 +373,7 @@
     <Key>
       <PropertyRef Name="Sales_brrowid" />
     </Key>
-    <Property Name="Sales_brrowid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Sales_brrowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Sales_brrowiddate" Type="datetime" />
     <Property Name="SalesId" Type="int" />
     <Property Name="Usersid" Type="int" />
@@ -600,7 +382,7 @@
     <Key>
       <PropertyRef Name="Deliveryid" />
     </Key>
-    <Property Name="Deliveryid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Deliveryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Delivery_num" Type="int" />
     <Property Name="Delivery_date" Type="datetime" />
     <Property Name="Salesid" Type="int" />
@@ -608,11 +390,30 @@
     <Property Name="Usersid" Type="int" />
     <Property Name="Tips" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="Shif">
+    <Key>
+      <PropertyRef Name="Shif_id" />
+    </Key>
+    <Property Name="Shif_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Cause" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Applay_time" Type="date" Nullable="false" />
+    <Property Name="YStart_time" Type="date" Nullable="false" />
+    <Property Name="YEnd_time" Type="date" Nullable="false" />
+    <Property Name="YTotal" Type="int" Nullable="false" />
+    <Property Name="NStart_time" Type="date" Nullable="false" />
+    <Property Name="NEnd_time" Type="date" Nullable="false" />
+    <Property Name="NTotal" Type="int" Nullable="false" />
+    <Property Name="Leave_Type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Progress" Type="int" Nullable="false" />
+    <Property Name="Userid" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Supplier">
     <Key>
       <PropertyRef Name="SupplierId" />
     </Key>
-    <Property Name="SupplierId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Supplier_name" Type="varchar" MaxLength="40" />
     <Property Name="Supplier_ Introduction" Type="varchar" MaxLength="40" />
     <Property Name="Postal_code" Type="varchar" MaxLength="10" />
@@ -630,9 +431,9 @@
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
@@ -640,14 +441,14 @@
     <Key>
       <PropertyRef Name="Transportid" />
     </Key>
-    <Property Name="Transportid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="TransportName" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Transportid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransportName" Type="varchar" MaxLength="40" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Usersid" />
     </Key>
-    <Property Name="Usersid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Usersid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Usersname" Type="varchar" MaxLength="40" />
     <Property Name="UserReadname" Type="varchar" MaxLength="10" />
     <Property Name="Users_password" Type="varchar" MaxLength="20" />
@@ -655,10 +456,11 @@
     <Property Name="Start_time" Type="date" />
     <Property Name="Department" Type="int" />
     <Property Name="Image" Type="nvarchar" MaxLength="100" />
+    <Property Name="Post" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Employees_Department">
-    <End Role="Department" Type="ErpDBModel.Store.Department" Multiplicity="0..1" />
-    <End Role="Employees" Type="ErpDBModel.Store.Employees" Multiplicity="*" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
         <PropertyRef Name="DepartmentId" />
@@ -669,8 +471,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Good_Quality_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="0..1" />
-    <End Role="Good_Quality" Type="ErpDBModel.Store.Good_Quality" Multiplicity="*" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="0..1" />
+    <End Role="Good_Quality" Type="Self.Good_Quality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Purchase_order">
         <PropertyRef Name="Purchase_orderid" />
@@ -681,8 +483,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Good_Quality_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Good_Quality" Type="ErpDBModel.Store.Good_Quality" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Good_Quality" Type="Self.Good_Quality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -693,8 +495,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_Delivery_Goods_inventory">
-    <End Role="Goods_inventory" Type="ErpDBModel.Store.Goods_inventory" Multiplicity="0..1" />
-    <End Role="Goods_Delivery" Type="ErpDBModel.Store.Goods_Delivery" Multiplicity="*" />
+    <End Role="Goods_inventory" Type="Self.Goods_inventory" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="Self.Goods_Delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Goods_inventory">
         <PropertyRef Name="InventoryId" />
@@ -705,8 +507,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_Delivery_Sales">
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="0..1" />
-    <End Role="Goods_Delivery" Type="ErpDBModel.Store.Goods_Delivery" Multiplicity="*" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="Self.Goods_Delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sales">
         <PropertyRef Name="SalesId" />
@@ -717,8 +519,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_Delivery_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Goods_Delivery" Type="ErpDBModel.Store.Goods_Delivery" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Goods_Delivery" Type="Self.Goods_Delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -729,8 +531,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_inventory_Goods_inventory">
-    <End Role="Product_Put" Type="ErpDBModel.Store.Product_Put" Multiplicity="0..1" />
-    <End Role="Goods_inventory" Type="ErpDBModel.Store.Goods_inventory" Multiplicity="*" />
+    <End Role="Product_Put" Type="Self.Product_Put" Multiplicity="0..1" />
+    <End Role="Goods_inventory" Type="Self.Goods_inventory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product_Put">
         <PropertyRef Name="Putid" />
@@ -741,8 +543,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_inventory_Purchase_Put">
-    <End Role="Purchase_Put" Type="ErpDBModel.Store.Purchase_Put" Multiplicity="0..1" />
-    <End Role="Goods_inventory" Type="ErpDBModel.Store.Goods_inventory" Multiplicity="*" />
+    <End Role="Purchase_Put" Type="Self.Purchase_Put" Multiplicity="0..1" />
+    <End Role="Goods_inventory" Type="Self.Goods_inventory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Purchase_Put">
         <PropertyRef Name="Putid" />
@@ -753,8 +555,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_Lnven">
-    <End Role="Lnven" Type="ErpDBModel.Store.Lnven" Multiplicity="0..1" />
-    <End Role="Goods" Type="ErpDBModel.Store.Goods" Multiplicity="*" />
+    <End Role="Lnven" Type="Self.Lnven" Multiplicity="0..1" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Lnven">
         <PropertyRef Name="Invenid" />
@@ -765,8 +567,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Goods_Supplier">
-    <End Role="Supplier" Type="ErpDBModel.Store.Supplier" Multiplicity="0..1" />
-    <End Role="Goods" Type="ErpDBModel.Store.Goods" Multiplicity="*" />
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Supplier">
         <PropertyRef Name="SupplierId" />
@@ -776,9 +578,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Leave_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Leave">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Material_Department">
-    <End Role="Department" Type="ErpDBModel.Store.Department" Multiplicity="0..1" />
-    <End Role="Material" Type="ErpDBModel.Store.Material" Multiplicity="*" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
         <PropertyRef Name="DepartmentId" />
@@ -789,8 +603,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Material_Goods">
-    <End Role="Goods" Type="ErpDBModel.Store.Goods" Multiplicity="0..1" />
-    <End Role="Material" Type="ErpDBModel.Store.Material" Multiplicity="*" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Goods">
         <PropertyRef Name="Goodsid" />
@@ -801,8 +615,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Material_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Material" Type="ErpDBModel.Store.Material" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -813,8 +627,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderManager_Customer">
-    <End Role="Customer" Type="ErpDBModel.Store.Customer" Multiplicity="0..1" />
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="*" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customer">
         <PropertyRef Name="CustomerId" />
@@ -825,8 +639,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderManager_Products">
-    <End Role="Products" Type="ErpDBModel.Store.Products" Multiplicity="0..1" />
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Products">
         <PropertyRef Name="Productsid" />
@@ -837,8 +651,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderManager_Transport">
-    <End Role="Transport" Type="ErpDBModel.Store.Transport" Multiplicity="0..1" />
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="*" />
+    <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Transport">
         <PropertyRef Name="Transportid" />
@@ -849,8 +663,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderManager_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -861,8 +675,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PlanOrder_OrderManager">
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="0..1" />
-    <End Role="PlanOrder" Type="ErpDBModel.Store.PlanOrder" Multiplicity="*" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="0..1" />
+    <End Role="PlanOrder" Type="Self.PlanOrder" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrderManager">
         <PropertyRef Name="Orderid" />
@@ -873,8 +687,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PlanOrder_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="PlanOrder" Type="ErpDBModel.Store.PlanOrder" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="PlanOrder" Type="Self.PlanOrder" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -885,8 +699,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Department">
-    <End Role="Department" Type="ErpDBModel.Store.Department" Multiplicity="0..1" />
-    <End Role="Product" Type="ErpDBModel.Store.Product" Multiplicity="*" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
         <PropertyRef Name="DepartmentId" />
@@ -897,8 +711,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_PlanOrder">
-    <End Role="PlanOrder" Type="ErpDBModel.Store.PlanOrder" Multiplicity="0..1" />
-    <End Role="Product" Type="ErpDBModel.Store.Product" Multiplicity="*" />
+    <End Role="PlanOrder" Type="Self.PlanOrder" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PlanOrder">
         <PropertyRef Name="PlanOrderid" />
@@ -909,8 +723,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Put_Product">
-    <End Role="Product" Type="ErpDBModel.Store.Product" Multiplicity="0..1" />
-    <End Role="Product_Put" Type="ErpDBModel.Store.Product_Put" Multiplicity="*" />
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product_Put" Type="Self.Product_Put" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="Productid" />
@@ -921,8 +735,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Quality_Purchase_order">
-    <End Role="Product" Type="ErpDBModel.Store.Product" Multiplicity="0..1" />
-    <End Role="Product_Quality" Type="ErpDBModel.Store.Product_Quality" Multiplicity="*" />
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product_Quality" Type="Self.Product_Quality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="Productid" />
@@ -933,8 +747,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Quality_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Product_Quality" Type="ErpDBModel.Store.Product_Quality" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Product_Quality" Type="Self.Product_Quality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -945,8 +759,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Product" Type="ErpDBModel.Store.Product" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -957,8 +771,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Products_Lnven">
-    <End Role="Lnven" Type="ErpDBModel.Store.Lnven" Multiplicity="0..1" />
-    <End Role="Products" Type="ErpDBModel.Store.Products" Multiplicity="*" />
+    <End Role="Lnven" Type="Self.Lnven" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Lnven">
         <PropertyRef Name="Invenid" />
@@ -968,33 +782,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Purchase _Brrowing_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="0..1" />
-    <End Role="Purchase _Brrowing" Type="ErpDBModel.Store.Purchase _Brrowing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Purchase_order">
-        <PropertyRef Name="Purchase_orderid" />
-      </Principal>
-      <Dependent Role="Purchase _Brrowing">
-        <PropertyRef Name="Purchaseid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Purchase _Brrowing_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase _Brrowing" Type="ErpDBModel.Store.Purchase _Brrowing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Usersid" />
-      </Principal>
-      <Dependent Role="Purchase _Brrowing">
-        <PropertyRef Name="Usersid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Purchase_brrowing_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="0..1" />
-    <End Role="Purchase_brrowing" Type="ErpDBModel.Store.Purchase_brrowing" Multiplicity="*" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_brrowing" Type="Self.Purchase_brrowing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Purchase_order">
         <PropertyRef Name="Purchase_orderid" />
@@ -1005,8 +795,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_brrowing_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase_brrowing" Type="ErpDBModel.Store.Purchase_brrowing" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purchase_brrowing" Type="Self.Purchase_brrowing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1017,8 +807,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_order_Goods">
-    <End Role="Goods" Type="ErpDBModel.Store.Goods" Multiplicity="0..1" />
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="*" />
+    <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Goods">
         <PropertyRef Name="Goodsid" />
@@ -1029,8 +819,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_order_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1041,8 +831,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_Put_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="0..1" />
-    <End Role="Purchase_Put" Type="ErpDBModel.Store.Purchase_Put" Multiplicity="*" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_Put" Type="Self.Purchase_Put" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Purchase_order">
         <PropertyRef Name="Purchase_orderid" />
@@ -1053,8 +843,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_Put_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase_Put" Type="ErpDBModel.Store.Purchase_Put" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purchase_Put" Type="Self.Purchase_Put" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1065,8 +855,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_Return_Purchase_order">
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="0..1" />
-    <End Role="Purchase_Return" Type="ErpDBModel.Store.Purchase_Return" Multiplicity="*" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+    <End Role="Purchase_Return" Type="Self.Purchase_Return" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sales">
         <PropertyRef Name="SalesId" />
@@ -1077,8 +867,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_Return_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase_Return" Type="ErpDBModel.Store.Purchase_Return" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purchase_Return" Type="Self.Purchase_Return" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1089,8 +879,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_returns_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Store.Purchase_order" Multiplicity="0..1" />
-    <End Role="Purchase_returns" Type="ErpDBModel.Store.Purchase_returns" Multiplicity="*" />
+    <End Role="Purchase_order" Type="Self.Purchase_order" Multiplicity="0..1" />
+    <End Role="Purchase_returns" Type="Self.Purchase_returns" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Purchase_order">
         <PropertyRef Name="Purchase_orderid" />
@@ -1101,8 +891,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Purchase_returns_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Purchase_returns" Type="ErpDBModel.Store.Purchase_returns" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Purchase_returns" Type="Self.Purchase_returns" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1113,8 +903,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Salary_Employees">
-    <End Role="Employees" Type="ErpDBModel.Store.Employees" Multiplicity="0..1" />
-    <End Role="Salary" Type="ErpDBModel.Store.Salary" Multiplicity="*" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employees">
         <PropertyRef Name="EmployeesId" />
@@ -1125,8 +915,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Brrowing_Sales">
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="0..1" />
-    <End Role="Sales_Brrowing" Type="ErpDBModel.Store.Sales_Brrowing" Multiplicity="*" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+    <End Role="Sales_Brrowing" Type="Self.Sales_Brrowing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sales">
         <PropertyRef Name="SalesId" />
@@ -1137,8 +927,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Brrowing_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Sales_Brrowing" Type="ErpDBModel.Store.Sales_Brrowing" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sales_Brrowing" Type="Self.Sales_Brrowing" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1149,8 +939,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Customer">
-    <End Role="Customer" Type="ErpDBModel.Store.Customer" Multiplicity="0..1" />
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="*" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customer">
         <PropertyRef Name="CustomerId" />
@@ -1161,8 +951,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_delivery_Sales">
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="0..1" />
-    <End Role="Sales_delivery" Type="ErpDBModel.Store.Sales_delivery" Multiplicity="*" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="0..1" />
+    <End Role="Sales_delivery" Type="Self.Sales_delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sales">
         <PropertyRef Name="SalesId" />
@@ -1173,8 +963,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_delivery_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Sales_delivery" Type="ErpDBModel.Store.Sales_delivery" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sales_delivery" Type="Self.Sales_delivery" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1185,8 +975,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_OrderManager">
-    <End Role="OrderManager" Type="ErpDBModel.Store.OrderManager" Multiplicity="0..1" />
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="*" />
+    <End Role="OrderManager" Type="Self.OrderManager" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OrderManager">
         <PropertyRef Name="Orderid" />
@@ -1197,8 +987,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Products">
-    <End Role="Products" Type="ErpDBModel.Store.Products" Multiplicity="0..1" />
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Products">
         <PropertyRef Name="Productsid" />
@@ -1209,8 +999,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Users">
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="0..1" />
-    <End Role="Sales" Type="ErpDBModel.Store.Sales" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Usersid" />
@@ -1220,9 +1010,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Shif_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Shif" Type="Self.Shif" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Shif">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Users_Users">
-    <End Role="Department" Type="ErpDBModel.Store.Department" Multiplicity="0..1" />
-    <End Role="Users" Type="ErpDBModel.Store.Users" Multiplicity="*" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
         <PropertyRef Name="DepartmentId" />
@@ -1232,4 +1034,230 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="ErpDBModelStoreContainer">
+    <EntitySet Name="Announcements" EntityType="Self.Announcements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dermal" EntityType="Self.Dermal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Good_Quality" EntityType="Self.Good_Quality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Goods_Delivery" EntityType="Self.Goods_Delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Goods_inventory" EntityType="Self.Goods_inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lnven" EntityType="Self.Lnven" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderManager" EntityType="Self.OrderManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanOrder" EntityType="Self.PlanOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Put" EntityType="Self.Product_Put" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Quality" EntityType="Self.Product_Quality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase_brrowing" EntityType="Self.Purchase_brrowing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase_order" EntityType="Self.Purchase_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase_Put" EntityType="Self.Purchase_Put" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase_Return" EntityType="Self.Purchase_Return" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase_returns" EntityType="Self.Purchase_returns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salary" EntityType="Self.Salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_Brrowing" EntityType="Self.Sales_Brrowing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_delivery" EntityType="Self.Sales_delivery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shif" EntityType="Self.Shif" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Employees_Department" Association="Self.FK_Employees_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Good_Quality_Purchase_order" Association="Self.FK_Good_Quality_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Good_Quality" EntitySet="Good_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Good_Quality_Users" Association="Self.FK_Good_Quality_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Good_Quality" EntitySet="Good_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Goods_inventory" Association="Self.FK_Goods_Delivery_Goods_inventory">
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Sales" Association="Self.FK_Goods_Delivery_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Delivery_Users" Association="Self.FK_Goods_Delivery_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Goods_Delivery" EntitySet="Goods_Delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_inventory_Goods_inventory" Association="Self.FK_Goods_inventory_Goods_inventory">
+      <End Role="Product_Put" EntitySet="Product_Put" />
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_inventory_Purchase_Put" Association="Self.FK_Goods_inventory_Purchase_Put">
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+      <End Role="Goods_inventory" EntitySet="Goods_inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Lnven" Association="Self.FK_Goods_Lnven">
+      <End Role="Lnven" EntitySet="Lnven" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goods_Supplier" Association="Self.FK_Goods_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Goods" EntitySet="Goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leave_Department" Association="Self.FK_Leave_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Leave" EntitySet="Leave" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Department" Association="Self.FK_Material_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Goods" Association="Self.FK_Material_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Users" Association="Self.FK_Material_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Customer" Association="Self.FK_OrderManager_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Products" Association="Self.FK_OrderManager_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Transport" Association="Self.FK_OrderManager_Transport">
+      <End Role="Transport" EntitySet="Transport" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderManager_Users" Association="Self.FK_OrderManager_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OrderManager" EntitySet="OrderManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanOrder_OrderManager" Association="Self.FK_PlanOrder_OrderManager">
+      <End Role="OrderManager" EntitySet="OrderManager" />
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanOrder_Users" Association="Self.FK_PlanOrder_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Department" Association="Self.FK_Product_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_PlanOrder" Association="Self.FK_Product_PlanOrder">
+      <End Role="PlanOrder" EntitySet="PlanOrder" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Put_Product" Association="Self.FK_Product_Put_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Put" EntitySet="Product_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Quality_Purchase_order" Association="Self.FK_Product_Quality_Purchase_order">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Quality" EntitySet="Product_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Quality_Users" Association="Self.FK_Product_Quality_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product_Quality" EntitySet="Product_Quality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Lnven" Association="Self.FK_Products_Lnven">
+      <End Role="Lnven" EntitySet="Lnven" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_brrowing_Purchase_order" Association="Self.FK_Purchase_brrowing_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_brrowing_Users" Association="Self.FK_Purchase_brrowing_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_order_Goods" Association="Self.FK_Purchase_order_Goods">
+      <End Role="Goods" EntitySet="Goods" />
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_order_Users" Association="Self.FK_Purchase_order_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Put_Purchase_order" Association="Self.FK_Purchase_Put_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Put_Users" Association="Self.FK_Purchase_Put_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_Put" EntitySet="Purchase_Put" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Return_Purchase_order" Association="Self.FK_Purchase_Return_Purchase_order">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Return_Users" Association="Self.FK_Purchase_Return_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_Return" EntitySet="Purchase_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_returns_Purchase_order" Association="Self.FK_Purchase_returns_Purchase_order">
+      <End Role="Purchase_order" EntitySet="Purchase_order" />
+      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_returns_Users" Association="Self.FK_Purchase_returns_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchase_returns" EntitySet="Purchase_returns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salary_Employees" Association="Self.FK_Salary_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Salary" EntitySet="Salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Brrowing_Sales" Association="Self.FK_Sales_Brrowing_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Brrowing_Users" Association="Self.FK_Sales_Brrowing_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_Brrowing" EntitySet="Sales_Brrowing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Customer" Association="Self.FK_Sales_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_delivery_Sales" Association="Self.FK_Sales_delivery_Sales">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_delivery_Users" Association="Self.FK_Sales_delivery_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales_delivery" EntitySet="Sales_delivery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_OrderManager" Association="Self.FK_Sales_OrderManager">
+      <End Role="OrderManager" EntitySet="OrderManager" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Products" Association="Self.FK_Sales_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Users" Association="Self.FK_Sales_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Shif_Department" Association="Self.FK_Shif_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Shif" EntitySet="Shif" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Users" Association="Self.FK_Users_Users">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

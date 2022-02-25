@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using SoERP.Models;
 using System.Data;
 using System.Web.Security;
+using SoERP.Controllers;
 
 namespace SoERP.Controllers
 {
@@ -16,6 +17,7 @@ namespace SoERP.Controllers
         // GET: /Personnel/
         //实例化上下文类
         ErpDBEntities db = new ErpDBEntities();
+        LazySingleton lazysingleton = LazySingleton.GetInstance();
         /// <summary>
         /// 首页
         /// </summary>
@@ -113,6 +115,7 @@ namespace SoERP.Controllers
                 {
                     System.Web.HttpContext.Current.Session["usrName"] = uname; //将用户名放入session中
                     System.Web.HttpContext.Current.Session["uid"] = id; //将用户ID放入session中
+                    System.Web.HttpContext.Current.Session["post"] = db.Users.Find(id).Post;
                     FormsAuthentication.SetAuthCookie(uname, false);
                     return Content("<script>window.location.href='/Personnel/Index'</script>");
                 }
@@ -1342,6 +1345,355 @@ namespace SoERP.Controllers
                 ViewBag.ann = model2;
             }
             return View("SystemManagementAnnouncementOfTheManagement");
+        }
+        #endregion
+        #region 请假申请
+        public ActionResult Leave()
+        {
+            int userid = int.Parse(Session["uid"].ToString());
+            //请假单信息
+            List<Leave> leave = db.Leave.OrderByDescending(a => a.Leave_id).Where(a => a.Userid == userid).ToList();
+            ViewBag.leave = leave;
+            //部门信息
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View();
+        }
+        /// <summary>
+        /// 模糊查询请假单信息
+        /// </summary>
+        /// <param name="leaveid"></param>
+        /// <returns></returns>
+        public ActionResult BasicLeaveLike(string names)
+        {
+            names = Request["names"];//前端input传过来的值
+            List<Leave> model = db.Leave.OrderByDescending(a => a.Leave_id).Where(a => a.Name.Contains(names)).ToList();
+            ViewBag.leave = model;
+            //部门信息
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View("Leave");//此视图为模糊查询所在的页面
+        }
+        /// <summary>
+        /// 查询请假单信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SelectLeaveById()
+        {
+            var leaveid = Request["LeaveID"];
+            var LeaveInfo = db.Leave.Find(int.Parse(leaveid));           
+            //返回数据
+            var obj = new
+            {
+                Leave_id = LeaveInfo.Leave_id,
+                Name = LeaveInfo.Name,
+                DepartmentId = LeaveInfo.DepartmentId,
+                Applytime = LeaveInfo.Applytime.ToString("yyyy-MM-dd"),
+                Cause = LeaveInfo.Cause,
+                Start_time = LeaveInfo.Start_time.ToString("yyyy-MM-dd"),
+                End_time = LeaveInfo.End_time.ToString("yyyy-MM-dd"),
+                Total_time = LeaveInfo.Total_time,
+                Leave_Type = LeaveInfo.Leave_Type,
+                Progress = LeaveInfo.Progress
+
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+        /// <summary>
+        /// 添加请假单
+        /// </summary>
+        /// <param name="ileave"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult InsertLeave(Leave ileave)
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            if (users.Post == 5)
+            {
+                ileave.Progress = 1;
+            }
+            db.Leave.Add(ileave);
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("Leave");
+            }
+            else
+            {
+                return Content("<script>alert('新增失败')</script>");
+            }
+        }
+        /// <summary>
+        /// 修改请假单
+        /// </summary>
+        /// <param name="leave"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdateLeave()
+        {
+            Leave ileave = db.Leave.Find(int.Parse(Request["Leave_id"]));
+            ileave.Name = Request["Name"];
+            ileave.Applytime = DateTime.Parse(Request["Applytime"]);
+            ileave.Cause = Request["Cause"];
+            ileave.DepartmentId = int.Parse(Request["DepartmentId"]);
+            ileave.End_time = DateTime.Parse(Request["End_time"]);
+            ileave.Leave_Type = Request["Leave_Type"];
+            ileave.Progress = int.Parse(Request["Progress"]);
+            ileave.Start_time = DateTime.Parse(Request["Start_time"]);
+            ileave.Total_time = int.Parse(Request["Total_time"]);
+            ileave.Userid = int.Parse(Request["Userid"]);
+            db.Entry<Leave>(ileave).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("Leave");
+            }
+            else
+            {
+                return Content("<script>alert('修改失败')</script>");
+            }
+        }
+        /// <summary>
+        /// 删除请假信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        //public ActionResult DeleteLeave(List<int?> id)
+        //{
+        //    foreach (var emp_id in id)
+        //    {
+        //        Users emp = db.Users.Find(emp_id);
+        //        db.Users.Remove(emp);
+        //    }
+        //    int num = db.SaveChanges();
+        //    string result = "";
+        //    if (num > 0)
+        //    {
+        //        result = "success";
+        //    }
+        //    else
+        //    {
+        //        result = "failure";
+        //    }
+        //    var obj = new
+        //    {
+        //        result = result
+        //    };
+        //    return Json(obj, JsonRequestBehavior.AllowGet);
+        //}
+        #endregion
+        #region 调班/调休
+        public ActionResult Shif()
+        {
+            int userid = int.Parse(Session["uid"].ToString());
+            //请假单信息
+            List<Shif> shif = db.Shif.OrderByDescending(a => a.Shif_id).Where(a => a.Userid== userid).ToList();
+            ViewBag.shif = shif;
+            //部门信息
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View();
+        }
+        /// <summary>
+        /// 添加调班申请
+        /// </summary>
+        /// <param name="ishif"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult InsertShif(Shif ishif)
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            if (users.Post == 5)
+            {
+                ishif.Progress = 1;
+            }
+            db.Shif.Add(ishif);
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("Shif");
+            }
+            else
+            {
+                return Content("<script>alert('新增失败')</script>");
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateShif()
+        {
+            Shif ishif = db.Shif.Find(int.Parse(Request["Shif_id"]));
+            ishif.Name = Request["Name"];
+            ishif.Applay_time = DateTime.Parse(Request["Applay_time"]);
+            ishif.Cause = Request["Cause"];
+            ishif.DepartmentId = int.Parse( Request["DepartmentId"]);
+            ishif.Leave_Type = Request["Leave_Type"];
+            ishif.NEnd_time = DateTime.Parse( Request["NEnd_time"]);
+            ishif.NStart_time = DateTime.Parse( Request["NStart_time"]);
+            ishif.NTotal = int.Parse( Request["NTotal"]);
+            ishif.Progress = int.Parse( Request["Progress"]);
+            ishif.Userid = int.Parse( Request["Userid"]);
+            ishif.YEnd_time = DateTime.Parse(Request["YEnd_time"]);
+            ishif.YStart_time = DateTime.Parse(Request["YStart_time"]);
+            ishif.YTotal = int.Parse(Request["YTotal"]);
+            db.Entry<Shif>(ishif).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("Shif");
+            }
+            else
+            {
+                return Content("<script>alert('修改失败')</script>");
+            }
+        }
+        /// <summary>
+        /// 编辑调班信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SelectShifById()
+        {
+            var shifid = Request["ShifId"];
+            var ShifInfo = db.Shif.Find(int.Parse(shifid));
+            //返回数据
+            var obj = new
+            {
+                Shif_id = ShifInfo.Shif_id,
+                Applay_time = ShifInfo.Applay_time.ToString("yyyy-MM-dd"),
+                Cause = ShifInfo.Cause,
+                DepartmentId = ShifInfo.DepartmentId,
+                Leave_Type = ShifInfo.Leave_Type,
+                Name = ShifInfo.Name,
+                NEnd_time = ShifInfo.NEnd_time.ToString("yyyy-MM-dd"),
+                NStart_time = ShifInfo.NStart_time.ToString("yyyy-MM-dd"),
+                NTotal = ShifInfo.NTotal,
+                YEnd_time = ShifInfo.YEnd_time.ToString("yyyy-MM-dd"),
+                YStart_time = ShifInfo.YStart_time.ToString("yyyy-MM-dd"),
+                YTotal = ShifInfo.YTotal,
+                Progress = ShifInfo.Progress
+
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="names"></param>
+        /// <returns></returns>
+        public ActionResult BasicShifLike(string names)
+        {
+            names = Request["names"];//前端input传过来的值
+            List<Shif> model = db.Shif.OrderByDescending(a => a.Shif_id).Where(a => a.Name.Contains(names)).ToList();
+            ViewBag.shif = model;
+            //部门信息
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View("Shif");//此视图为模糊查询所在的页面
+        }
+        /// <summary>
+        /// 调休/调班审批 信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult examainShif()
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            int depid = int.Parse(users.Department.ToString());
+            int userid = int.Parse(users.Usersid.ToString());
+            //判断等级权限
+            if (users.Post>1 && users.Post <= 5)
+            {
+                //部门经理，只能审批本部门的
+                //List<Shif> shifList = db.Shif.Find(departmentId).
+                List <Shif> shifList = db.Shif.OrderByDescending(a => a.Shif_id).Where(a => a.DepartmentId.Equals(depid) && a.Progress==0).ToList();
+                ViewBag.examain = shifList;
+            }
+            else
+            {
+                //总经理,审批所有部门的
+                List<Shif> shifList = db.Shif.OrderByDescending(a => a.Shif_id).Where(a => a.Progress ==1).ToList();
+                ViewBag.examain = shifList;
+            }
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View();
+            //根据账号查询出其所在的部门
+            //通过部门查询出该部门的审批单
+        }
+        /// <summary>
+        /// 审批操作
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UpdateexamainShif()
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            Shif ishif = db.Shif.Find(int.Parse(Request["Shif_id"]));
+            if(users.Post > 1 && users.Post <= 5)
+            {
+                ishif.Progress = 1;
+            }
+            else
+            {
+                ishif.Progress = 2;
+            }
+            
+            db.Entry<Shif>(ishif).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("examainShif");
+            }
+            else
+            {
+                return Content("<script>alert('修改失败')</script>");
+            }
+        }
+        /// <summary>
+        /// 请假审批 信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult examainLeave()
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            int depid = int.Parse(users.Department.ToString());
+            int userid = int.Parse(users.Usersid.ToString());
+            //判断等级权限
+            if (users.Post > 1 && users.Post <= 5)
+            {
+                //部门经理，只能审批本部门的
+                //List<Shif> shifList = db.Shif.Find(departmentId).
+                List<Leave> LeaveList = db.Leave.OrderByDescending(a => a.Leave_id).Where(a => a.DepartmentId.Equals(depid) && a.Progress == 0).ToList();
+                ViewBag.examainleave = LeaveList;
+            }
+            else
+            {
+                //总经理,审批所有部门的
+                List<Leave> LeaveList = db.Leave.OrderByDescending(a => a.Leave_id).Where(a => a.Progress == 1).ToList();
+                ViewBag.examainleave = LeaveList;
+            }
+            var department = db.Department.ToList();
+            ViewBag.department = department;
+            return View();
+        }
+        /// <summary>
+        /// 审批操作
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UpdateexamainLeave()
+        {
+            Users users = db.Users.Find(int.Parse(Session["uid"].ToString()));
+            Leave ileave = db.Leave.Find(int.Parse(Request["Leave_id"]));
+            if (users.Post > 1 && users.Post <= 5)
+            {
+                ileave.Progress = 1;
+            }
+            else
+            {
+                ileave.Progress = 2;
+            }
+
+            db.Entry<Leave>(ileave).State = EntityState.Modified;
+            if (db.SaveChanges() > 0)
+            {
+                return RedirectToAction("examainLeave");
+            }
+            else
+            {
+                return Content("<script>alert('修改失败')</script>");
+            }
         }
         #endregion
     }

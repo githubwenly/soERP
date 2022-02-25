@@ -127,6 +127,7 @@
 
 	<body>
         <input type="hidden" value="@Session["usrName"]" id="name"/>
+        @*使用js的方式显示相关权限操作*@
         <input type="hidden" value="@ViewBag.lname" id="lname" />
         <input type="hidden" value="@ViewBag.tname" id="tname" />
         <input type="hidden" value="@ViewBag.gname" id="gname" />
@@ -153,13 +154,20 @@
                                     <ul class="nav nav-subnav">
                                         <li>
                                             <a href="/Personnel/BusinessManagementCorporateAnnouncements" target="TargetName"><i class="mdi mdi-file-outline"></i>企业公告</a>
-                                        </li>                                                                 
-                                        <li>
-                                            <a href="javaScript:;" target="TargetName"><i class="mdi mdi-file-outline"></i>请假申请</a>
                                         </li>
                                         <li>
-                                            <a href="javaScript:;" target="TargetName"><i class="mdi mdi-file-outline"></i>调班申请</a>
+                                            <a href="/Personnel/Leave" target="TargetName"><i class="mdi mdi-file-outline"></i>请假申请</a>
                                         </li>
+                                        <li>
+                                            <a href="/Personnel/Shif" target="TargetName"><i class="mdi mdi-file-outline"></i>调班申请</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Personnel/examainLeave" target="TargetName"><i class="mdi mdi-file-outline"></i>请假审批</a>
+                                        </li>
+                                        <li>
+                                            <a href="/Personnel/examainShif" target="TargetName"><i class="mdi mdi-file-outline"></i>调班审批</a>
+                                        </li>
+
                                         @*2021-11-20 update wenly*@
                                         @*<li>
             <a href="/Personnel/CustomerManagerInfo" target="TargetName"><i class="mdi mdi-file-outline"></i>客户资料</a>

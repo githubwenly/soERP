@@ -18,7 +18,6 @@
     <EntitySet Name="Product_Put" EntityType="ErpDBModel.Product_Put" />
     <EntitySet Name="Product_Quality" EntityType="ErpDBModel.Product_Quality" />
     <EntitySet Name="Products" EntityType="ErpDBModel.Products" />
-    <EntitySet Name="Purchase__Brrowing" EntityType="ErpDBModel.Purchase__Brrowing" />
     <EntitySet Name="Purchase_brrowing" EntityType="ErpDBModel.Purchase_brrowing" />
     <EntitySet Name="Purchase_order" EntityType="ErpDBModel.Purchase_order" />
     <EntitySet Name="Purchase_Put" EntityType="ErpDBModel.Purchase_Put" />
@@ -160,14 +159,6 @@
       <End Role="Products" EntitySet="Products" />
       <End Role="Sales" EntitySet="Sales" />
     </AssociationSet>
-    <AssociationSet Name="FK_Purchase__Brrowing_Purchase_order" Association="ErpDBModel.FK_Purchase__Brrowing_Purchase_order">
-      <End Role="Purchase_order" EntitySet="Purchase_order" />
-      <End Role="Purchase__Brrowing" EntitySet="Purchase__Brrowing" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Purchase__Brrowing_Users" Association="ErpDBModel.FK_Purchase__Brrowing_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Purchase__Brrowing" EntitySet="Purchase__Brrowing" />
-    </AssociationSet>
     <AssociationSet Name="FK_Purchase_brrowing_Purchase_order" Association="ErpDBModel.FK_Purchase_brrowing_Purchase_order">
       <End Role="Purchase_order" EntitySet="Purchase_order" />
       <End Role="Purchase_brrowing" EntitySet="Purchase_brrowing" />
@@ -224,6 +215,16 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Sales_delivery" EntitySet="Sales_delivery" />
     </AssociationSet>
+    <EntitySet Name="Leave" EntityType="ErpDBModel.Leave" />
+    <AssociationSet Name="FK_Leave_Department" Association="ErpDBModel.FK_Leave_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Leave" EntitySet="Leave" />
+    </AssociationSet>
+    <EntitySet Name="Shif" EntityType="ErpDBModel.Shif" />
+    <AssociationSet Name="FK_Shif_Department" Association="ErpDBModel.FK_Shif_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Shif" EntitySet="Shif" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Announcements">
     <Key>
@@ -265,6 +266,8 @@
     <NavigationProperty Name="Material" Relationship="ErpDBModel.FK_Material_Department" FromRole="Department" ToRole="Material" />
     <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Department" FromRole="Department" ToRole="Product" />
     <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Users_Users" FromRole="Department" ToRole="Users" />
+    <NavigationProperty Name="Leave" Relationship="ErpDBModel.FK_Leave_Department" FromRole="Department" ToRole="Leave" />
+    <NavigationProperty Name="Shif" Relationship="ErpDBModel.FK_Shif_Department" FromRole="Department" ToRole="Shif" />
   </EntityType>
   <EntityType Name="Dermal">
     <Key>
@@ -510,17 +513,6 @@
     <NavigationProperty Name="OrderManager" Relationship="ErpDBModel.FK_OrderManager_Products" FromRole="Products" ToRole="OrderManager" />
     <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Products" FromRole="Products" ToRole="Sales" />
   </EntityType>
-  <EntityType Name="Purchase__Brrowing">
-    <Key>
-      <PropertyRef Name="Purchase_brriwid" />
-    </Key>
-    <Property Name="Purchase_brriwid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="Purchase_brriwdate" Type="DateTime" Precision="3" />
-    <Property Name="Purchaseid" Type="Int32" />
-    <Property Name="Usersid" Type="Int32" />
-    <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase__Brrowing_Purchase_order" FromRole="Purchase__Brrowing" ToRole="Purchase_order" />
-    <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase__Brrowing_Users" FromRole="Purchase__Brrowing" ToRole="Users" />
-  </EntityType>
   <EntityType Name="Purchase_brrowing">
     <Key>
       <PropertyRef Name="Brrowingid" />
@@ -560,7 +552,6 @@
     <Property Name="Tips" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Good_Quality" Relationship="ErpDBModel.FK_Good_Quality_Purchase_order" FromRole="Purchase_order" ToRole="Good_Quality" />
     <NavigationProperty Name="Goods" Relationship="ErpDBModel.FK_Purchase_order_Goods" FromRole="Purchase_order" ToRole="Goods" />
-    <NavigationProperty Name="Purchase__Brrowing" Relationship="ErpDBModel.FK_Purchase__Brrowing_Purchase_order" FromRole="Purchase_order" ToRole="Purchase__Brrowing" />
     <NavigationProperty Name="Purchase_brrowing" Relationship="ErpDBModel.FK_Purchase_brrowing_Purchase_order" FromRole="Purchase_order" ToRole="Purchase_brrowing" />
     <NavigationProperty Name="Users" Relationship="ErpDBModel.FK_Purchase_order_Users" FromRole="Purchase_order" ToRole="Users" />
     <NavigationProperty Name="Purchase_Put" Relationship="ErpDBModel.FK_Purchase_Put_Purchase_order" FromRole="Purchase_order" ToRole="Purchase_Put" />
@@ -742,7 +733,6 @@
     <NavigationProperty Name="PlanOrder" Relationship="ErpDBModel.FK_PlanOrder_Users" FromRole="Users" ToRole="PlanOrder" />
     <NavigationProperty Name="Product" Relationship="ErpDBModel.FK_Product_Users" FromRole="Users" ToRole="Product" />
     <NavigationProperty Name="Product_Quality" Relationship="ErpDBModel.FK_Product_Quality_Users" FromRole="Users" ToRole="Product_Quality" />
-    <NavigationProperty Name="Purchase__Brrowing" Relationship="ErpDBModel.FK_Purchase__Brrowing_Users" FromRole="Users" ToRole="Purchase__Brrowing" />
     <NavigationProperty Name="Purchase_brrowing" Relationship="ErpDBModel.FK_Purchase_brrowing_Users" FromRole="Users" ToRole="Purchase_brrowing" />
     <NavigationProperty Name="Purchase_order" Relationship="ErpDBModel.FK_Purchase_order_Users" FromRole="Users" ToRole="Purchase_order" />
     <NavigationProperty Name="Purchase_Put" Relationship="ErpDBModel.FK_Purchase_Put_Users" FromRole="Users" ToRole="Purchase_Put" />
@@ -751,6 +741,7 @@
     <NavigationProperty Name="Sales" Relationship="ErpDBModel.FK_Sales_Users" FromRole="Users" ToRole="Sales" />
     <NavigationProperty Name="Sales_Brrowing" Relationship="ErpDBModel.FK_Sales_Brrowing_Users" FromRole="Users" ToRole="Sales_Brrowing" />
     <NavigationProperty Name="Sales_delivery" Relationship="ErpDBModel.FK_Sales_delivery_Users" FromRole="Users" ToRole="Sales_delivery" />
+    <Property Name="Post" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_OrderManager_Customer">
     <End Role="Customer" Type="ErpDBModel.Customer" Multiplicity="0..1" />
@@ -1136,30 +1127,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Purchase__Brrowing_Purchase_order">
-    <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
-    <End Role="Purchase__Brrowing" Type="ErpDBModel.Purchase__Brrowing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Purchase_order">
-        <PropertyRef Name="Purchase_orderid" />
-      </Principal>
-      <Dependent Role="Purchase__Brrowing">
-        <PropertyRef Name="Purchaseid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Purchase__Brrowing_Users">
-    <End Role="Users" Type="ErpDBModel.Users" Multiplicity="0..1" />
-    <End Role="Purchase__Brrowing" Type="ErpDBModel.Purchase__Brrowing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="Usersid" />
-      </Principal>
-      <Dependent Role="Purchase__Brrowing">
-        <PropertyRef Name="Usersid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Purchase_brrowing_Purchase_order">
     <End Role="Purchase_order" Type="ErpDBModel.Purchase_order" Multiplicity="0..1" />
     <End Role="Purchase_brrowing" Type="ErpDBModel.Purchase_brrowing" Multiplicity="*" />
@@ -1325,6 +1292,67 @@
       </Principal>
       <Dependent Role="Sales_delivery">
         <PropertyRef Name="Usersid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="Leave_id" />
+    </Key>
+    <Property Name="Leave_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Applytime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cause" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Start_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="End_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Total_time" Type="Int32" Nullable="false" />
+    <Property Name="Leave_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Progress" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="ErpDBModel.FK_Leave_Department" FromRole="Leave" ToRole="Department" />
+    <Property Name="Userid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Leave_Department">
+    <End Type="ErpDBModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="ErpDBModel.Leave" Role="Leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Leave">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Shif">
+    <Key>
+      <PropertyRef Name="Shif_id" />
+    </Key>
+    <Property Name="Shif_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Cause" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Applay_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="YStart_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="YEnd_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="YTotal" Type="Int32" Nullable="false" />
+    <Property Name="NStart_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NEnd_time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NTotal" Type="Int32" Nullable="false" />
+    <Property Name="Leave_Type" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Progress" Type="Int32" Nullable="false" />
+    <Property Name="Userid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="ErpDBModel.FK_Shif_Department" FromRole="Shif" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_Shif_Department">
+    <End Type="ErpDBModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="ErpDBModel.Shif" Role="Shif" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Shif">
+        <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -42,7 +42,6 @@ namespace SoERP.Models
         public DbSet<Product_Put> Product_Put { get; set; }
         public DbSet<Product_Quality> Product_Quality { get; set; }
         public DbSet<Products> Products { get; set; }
-        public DbSet<Purchase__Brrowing> Purchase__Brrowing { get; set; }
         public DbSet<Purchase_brrowing> Purchase_brrowing { get; set; }
         public DbSet<Purchase_order> Purchase_order { get; set; }
         public DbSet<Purchase_Put> Purchase_Put { get; set; }
@@ -56,5 +55,7 @@ namespace SoERP.Models
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<Transport> Transport { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Leave> Leave { get; set; }
+        public DbSet<Shif> Shif { get; set; }
     }
 }

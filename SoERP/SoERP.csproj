@@ -126,6 +126,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\LazySingleton.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
@@ -159,6 +160,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Good_Quality.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Leave.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lnven.cs">
@@ -215,9 +219,6 @@
     <Compile Include="Models\Purchase_returns.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Purchase__Brrowing.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Salary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -228,6 +229,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sales_delivery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shif.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
@@ -816,6 +820,10 @@
     <Content Include="Views\Manager\Manager.cshtml" />
     <Content Include="Views\Manager\Message.cshtml" />
     <Content Include="Views\Personnel\Login.cshtml" />
+    <Content Include="Views\Personnel\Leave.cshtml" />
+    <Content Include="Views\Personnel\Shif.cshtml" />
+    <Content Include="Views\Personnel\examainShif.cshtml" />
+    <Content Include="Views\Personnel\examainLeave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
