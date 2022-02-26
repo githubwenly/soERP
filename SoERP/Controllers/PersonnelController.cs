@@ -57,7 +57,7 @@ namespace SoERP.Controllers
             Dermal der = (from item in db.Dermal where item.Usersid == id select item).FirstOrDefault();
             ViewBag.lname = der.Dermal_lname;
             ViewBag.tname = der.Dermal_tname;
-            ViewBag.gname = der.Dermal_gname;
+            ViewBag.gname = der.Dermal_gname;  
             return View();
         }
 
@@ -116,6 +116,7 @@ namespace SoERP.Controllers
                     System.Web.HttpContext.Current.Session["usrName"] = uname; //将用户名放入session中
                     System.Web.HttpContext.Current.Session["uid"] = id; //将用户ID放入session中
                     System.Web.HttpContext.Current.Session["post"] = db.Users.Find(id).Post;
+                    System.Web.HttpContext.Current.Session["department"] = db.Users.Find(id).Department;
                     FormsAuthentication.SetAuthCookie(uname, false);
                     return Content("<script>window.location.href='/Personnel/Index'</script>");
                 }
